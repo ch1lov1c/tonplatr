@@ -728,20 +728,20 @@
       let body = null;
       try { body = await response.json(); } catch (_) {}
       if (!response.ok || (body && body.ok === false)) {
-        throw new Error("Zapnoty не подтвердил приём заявки");
+        throw new Error("Не удалось отправить заявку");
       }
       // Успех означает приём Zapnoty, а не гарантию доставки уведомления адресату в MAX.
       const preview = document.getElementById("sent-preview");
-      if (preview) preview.textContent = "Заявка принята Zapnoty. Менеджер свяжется с вами после получения сообщения в MAX.";
+      if (preview) preview.textContent = "Заявка принята. Менеджер свяжется с вами.";
       state.orderSentMode = true;
       renderDrawerContents();
       if (!document.getElementById("table-drawer").classList.contains("is-open")) {
         openTableDrawer(document.activeElement);
       }
       document.querySelectorAll("#drawer-order-form, #footer-order-form").forEach((form) => form.reset());
-      announce("Заявка принята сервисом Zapnoty. Ожидайте ответа менеджера.");
+      announce("Заявка принята. Ожидайте ответа менеджера.");
     } catch (_) {
-      errorEl.textContent = "Не удалось подтвердить приём заявки в Zapnoty. Проверьте подключение или свяжитесь с нами по телефону. Перед повторной отправкой уточните, не поступила ли первая заявка.";
+      errorEl.textContent = "Не удалось отправить заявку. Проверьте подключение или свяжитесь с нами по телефону. Перед повторной отправкой уточните, не поступила ли первая заявка.";
       errorEl.hidden = false;
       announce(errorEl.textContent);
     } finally {

@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#FAF7F2">
   <meta name="referrer" content="no-referrer">
   <!-- Защита от сторонних скриптов, фреймов и несанкционированных запросов. На GitHub Pages — через meta. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'sha256-YQ9EUnD1vRyJuk60lekfo6aTLXPX0qWXtQfLLjce4Ic=' 'sha256-UEk23P0Eg/jEDuh7MH6okfD8z8KX6Sj/dhCg+MNuDq0=' 'sha256-xySx4EGgfjyvltjI2FqCAuoPCCnh3+sW7mUHzLq4BTM=' 'sha256-fsc3IYKTtjBjZAPsXsp47fRr/ZpaeXSQMHa1AvfSI7Q='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src https://api.zapnoty.com; frame-src 'none'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'sha256-YQ9EUnD1vRyJuk60lekfo6aTLXPX0qWXtQfLLjce4Ic=' 'sha256-UEk23P0Eg/jEDuh7MH6okfD8z8KX6Sj/dhCg+MNuDq0=' 'sha256-xySx4EGgfjyvltjI2FqCAuoPCCnh3+sW7mUHzLq4BTM=' 'sha256-hnkb9z29iikIfs0QCHFslCI/HHhArLCrwtVtvQYjlpc='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src https://api.zapnoty.com; frame-src 'none'; form-action 'self'; upgrade-insecure-requests">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
@@ -2736,7 +2736,7 @@ body.tonplat-order-open .site-header { display: none !important; }
               Помочь собрать стол под ваш бюджет?
             </h3>
             <p style="margin: 0 0 18px; font-size: var(--text-sm); color: var(--color-text-secondary);">
-              Укажите имя и телефон — менеджер получит заявку через Zapnoty в MAX и свяжется с вами для предварительного расчёта.
+              Укажите имя и телефон — мы свяжемся с вами для предварительного расчёта.
             </p>
 
             <form id="footer-order-form" novalidate>
@@ -2757,11 +2757,11 @@ body.tonplat-order-open .site-header { display: none !important; }
                 <input id="footer-consent" type="checkbox" required>
                 <span>Даю <a href="./consent.html" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> для ответа на запрос. Подробнее — в <a href="./privacy.html" target="_blank" rel="noopener noreferrer">политике конфиденциальности</a>.</span>
               </label>
-              <p class="privacy-form-note">Нажимая «Отправить», вы передаёте указанные данные через Zapnoty для доставки заявки менеджеру в MAX. <a href="./privacy.html" target="_blank" rel="noopener noreferrer">Подробнее об обработке данных</a>.</p>
+              <p class="privacy-form-note">Нажимая «Отправить», вы даёте согласие на обработку указанных данных для оформления заказа. <a href="./privacy.html" target="_blank" rel="noopener noreferrer">Подробнее об обработке данных</a>.</p>
               <p id="footer-error" class="field-error" role="alert" hidden></p>
 
               <button class="btn btn-primary" type="submit" style="width: 100%; margin-block-start: 4px;">
-                Отправить заявку в MAX
+                Отправить заявку
               </button>
             </form>
           </div>
@@ -2893,11 +2893,11 @@ body.tonplat-order-open .site-header { display: none !important; }
             <input id="drawer-consent" type="checkbox" required>
             <span>Даю <a href="./consent.html" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> для ответа на запрос. Подробнее — в <a href="./privacy.html" target="_blank" rel="noopener noreferrer">политике конфиденциальности</a>.</span>
           </label>
-          <p class="privacy-form-note">При отправке заявки данные передаются в Zapnoty и направляются менеджеру в MAX. Запрос не является подтверждённым заказом.</p>
+          <p class="privacy-form-note">При отправке заявки данные используются только для оформления заказа. Запрос не является подтверждённым заказом.</p>
           <p id="drawer-error" class="field-error" role="alert" hidden></p>
 
           <button id="drawer-submit-btn" class="btn btn-primary" type="submit" style="width: 100%;">
-            Отправить заявку в MAX
+            Отправить заявку
           </button>
 
           <button id="drawer-pdf-btn" class="btn btn-pastel" type="button" style="width: 100%; margin-block-start: 8px;" hidden>
@@ -2906,12 +2906,12 @@ body.tonplat-order-open .site-header { display: none !important; }
         </form>
       </div>
 
-      <!-- Подтверждение приёма заявки сервисом Zapnoty -->
+      <!-- Подтверждение приёма заявки -->
       <div id="drawer-sent-box" class="drawer-card" hidden>
         <span class="sage-pill" style="margin-block-end: 10px;">&#10003; Заявка принята</span>
         <h3 style="margin: 0 0 6px; font-family: var(--font-display); font-size: 1.5rem;">Спасибо! Заявка отправлена</h3>
         <p style="margin: 0 0 12px; font-size: var(--text-xs); color: var(--color-text-secondary);">
-          Сервис Zapnoty принял заявку и передаст её ответственному менеджеру в MAX согласно настройкам маршрута. Мы свяжемся с вами для уточнения деталей.
+          Ваша заявка принята. Мы свяжемся с вами для уточнения деталей.
         </p>
 
         <div style="display: flex; flex-direction: column; gap: 8px; margin-block-end: 14px;">
@@ -5524,20 +5524,20 @@ window.TONPLAT_DATA = {
       let body = null;
       try { body = await response.json(); } catch (_) {}
       if (!response.ok || (body && body.ok === false)) {
-        throw new Error("Zapnoty не подтвердил приём заявки");
+        throw new Error("Не удалось отправить заявку");
       }
       // Успех означает приём Zapnoty, а не гарантию доставки уведомления адресату в MAX.
       const preview = document.getElementById("sent-preview");
-      if (preview) preview.textContent = "Заявка принята Zapnoty. Менеджер свяжется с вами после получения сообщения в MAX.";
+      if (preview) preview.textContent = "Заявка принята. Менеджер свяжется с вами.";
       state.orderSentMode = true;
       renderDrawerContents();
       if (!document.getElementById("table-drawer").classList.contains("is-open")) {
         openTableDrawer(document.activeElement);
       }
       document.querySelectorAll("#drawer-order-form, #footer-order-form").forEach((form) => form.reset());
-      announce("Заявка принята сервисом Zapnoty. Ожидайте ответа менеджера.");
+      announce("Заявка принята. Ожидайте ответа менеджера.");
     } catch (_) {
-      errorEl.textContent = "Не удалось подтвердить приём заявки в Zapnoty. Проверьте подключение или свяжитесь с нами по телефону. Перед повторной отправкой уточните, не поступила ли первая заявка.";
+      errorEl.textContent = "Не удалось отправить заявку. Проверьте подключение или свяжитесь с нами по телефону. Перед повторной отправкой уточните, не поступила ли первая заявка.";
       errorEl.hidden = false;
       announce(errorEl.textContent);
     } finally {
