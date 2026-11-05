@@ -488,6 +488,7 @@
 
     renderDrawerContents();
     drawer.classList.add("is-open");
+    document.body.classList.add("tonplat-order-open");
     drawer.setAttribute("aria-hidden", "false");
     backdrop.classList.add("is-open");
     if (openBtn) openBtn.setAttribute("aria-expanded", "true");
@@ -497,19 +498,21 @@
     if (closeBtn) closeBtn.focus();
   }
 
-  function closeTableDrawer() {
+  function closeTableDrawer(options = {}) {
+    const restoreFocus = options.restoreFocus !== false;
     const drawer = document.getElementById("table-drawer");
     const backdrop = document.getElementById("drawer-backdrop");
     const openBtn = document.getElementById("open-table-btn");
     if (!drawer || !backdrop) return;
 
     drawer.classList.remove("is-open");
+    document.body.classList.remove("tonplat-order-open");
     drawer.setAttribute("aria-hidden", "true");
     backdrop.classList.remove("is-open");
     if (openBtn) openBtn.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
 
-    if (state.lastFocusBeforeDrawer && typeof state.lastFocusBeforeDrawer.focus === "function") {
+    if (restoreFocus && state.lastFocusBeforeDrawer && typeof state.lastFocusBeforeDrawer.focus === "function") {
       state.lastFocusBeforeDrawer.focus();
     }
   }
@@ -576,9 +579,7 @@
           Нажмите на готовый набор, чтобы заполнить стол в 1 клик, или оставьте список пустым — мы сами подберём блюда под ваш бюджет:
         </p>
         ${miniPresets}
-        <a href="#menu" data-close-drawer style="display: inline-block; margin-block-start: 10px; font-size: var(--text-xs); font-weight: 600; color: var(--color-accent-solid);">
-          Или выбрать блюда поштучно в меню &rarr;
-        </a>
+
       `;
       submitBtn.textContent = `Подобрать меню на ${state.guests}\u00A0гостей`;
     } else {
@@ -942,7 +943,21 @@
     document.addEventListener("click", (e) => {
       const target = e.target.closest("[data-action]");
       if (!target) {
-        if (e.target.closest("[data-close-drawer]")) closeTableDrawer();
+        const backLink = e.target.closest("[data-close-drawer]");
+        if (backLink) {
+          const destination = backLink.getAttribute("href") || "";
+          if (destination.startsWith("#")) {
+            e.preventDefault();
+            closeTableDrawer({ restoreFocus: false });
+            const section = document.getElementById(destination.slice(1));
+            if (section) {
+              history.replaceState(null, "", destination);
+              section.scrollIntoView({ block: "start", behavior: "smooth" });
+            }
+          } else {
+            closeTableDrawer({ restoreFocus: false });
+          }
+        }
         return;
       }
 

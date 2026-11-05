@@ -58,6 +58,9 @@
   <style>
     .mobile-hero-panel { display: none; }
 
+    /* The order dialog has its own navigation; hide the site header while open. */
+    body.tonplat-order-open .site-header { display: none !important; }
+
     @media (max-width: 767.98px) {
       body { background: #0f0b08; }
       .site-header {
@@ -90,10 +93,17 @@
       }
       .brand-name {
         color: #fff7ee;
-        font-size: 18px;
-        line-height: 1;
+        font-size: 23px;
+        line-height: 1.04;
       }
-      .brand-tagline,
+      .brand-tagline {
+        display: block !important;
+        color: rgba(255, 247, 238, .78);
+        font-size: 10px;
+        line-height: 1.2;
+        margin-top: 3px;
+        letter-spacing: .02em;
+      }
       .main-nav,
       .header-phone { display: none !important; }
       .header-actions {
@@ -139,12 +149,10 @@
         width: 88px !important;
         height: 88px !important;
       }
-      .hero-roll-wrap {
-        margin-top: -6px;
-      }
+      .hero-wordmark-wrap { margin-top: -6px; }
       .hero-full-name {
         color: #fff7ee;
-        font-size: 18px;
+        font-size: clamp(26px, 7vw, 32px);
         letter-spacing: 0.16em;
       }
 
@@ -252,7 +260,7 @@
       .hero-full-center { padding-top: 12px; padding-bottom: 16px; gap: 4px; }
       .hero-logo-glow { margin-top: 0; transform: scale(.76); }
       .hero-full-logo { width: 72px !important; height: 72px !important; }
-      .hero-roll-wrap { margin-top: -14px; }
+      .hero-wordmark-wrap { margin-top: -14px; }
       .mobile-hero-panel { gap: 9px; }
       .mobile-hero-title { font-size: clamp(32px, 8vw, 42px); }
       .mobile-hero-subtitle { font-size: 14px; }
@@ -333,13 +341,7 @@
         <div class="hero-logo-glow">
           <img class="hero-full-logo" src="./logo.png?v=20261105" width="128" height="128" alt="ТонПлат">
         </div>
-        <div class="hero-roll-wrap">
-          <svg class="hero-rolling-pin" viewBox="0 0 120 40" aria-hidden="true">
-            <rect x="8" y="14" width="70" height="12" rx="6" fill="#C9AE7E"/>
-            <rect x="0" y="16" width="10" height="8" rx="4" fill="#8A6D3B"/>
-            <rect x="78" y="16" width="10" height="8" rx="4" fill="#8A6D3B"/>
-            <rect x="88" y="17" width="26" height="6" rx="3" fill="#8A6D3B"/>
-          </svg>
+        <div class="hero-wordmark-wrap">
           <span class="hero-full-name" id="hero-name">ТОНПЛАТ</span>
         </div>
         <div class="mobile-hero-panel" aria-label="Главное предложение">
@@ -630,7 +632,8 @@
     aria-hidden="true"
   >
     <div class="drawer-head">
-      <div style="display: flex; align-items: center; gap: 10px;">
+      <div class="drawer-head-top">
+        <div class="drawer-head-brand">
         <img src="./logo.png?v=20261105" width="36" height="36" style="border-radius: 50%;" alt="">
         <div>
           <h2 id="table-drawer-title" class="drawer-title">Собрать на стол</h2>
@@ -643,6 +646,11 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
+      </div>
+      <nav class="drawer-quick-nav" aria-label="Вернуться к сайту">
+        <a href="#top" data-close-drawer>← На главную</a>
+        <a href="#menu" data-close-drawer>Посмотреть меню →</a>
+      </nav>
     </div>
 
     <div id="drawer-scroll-content" class="drawer-scroll">
