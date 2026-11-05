@@ -681,18 +681,73 @@
     return lines.join("\n");
   }
 
-  function completeOrderSubmission(name, phone, extraNotes) {
-    const text = buildOrderMessage(name, phone, extraNotes);
-    document.getElementById("sent-preview").textContent = text;
-    document.getElementById("sent-wa-btn").href = `https://wa.me/${CFG.whatsappNumber}?text=${encodeURIComponent(text)}`;
-
-
-    state.orderSentMode = true;
-    renderDrawerContents();
-    if (!document.getElementById("table-drawer").classList.contains("is-open")) {
-      openTableDrawer(document.activeElement);
+  let sendingLead = false;
+  async function completeOrderSubmission(name, phone, extraNotes, errorEl, submitButton) {
+    if (sendingLead) return;
+    const formId = CFG.zapnoty && String(CFG.zapnoty.formId || "").trim();
+    // form_id должен быть получен от владельца сайта в Zapnoty. Не подменяем отправку фиктивным успехом.
+    if (!formId || !/^[a-zA-Z0-9_-]{3,128}$/.test(formId)) {
+      errorEl.textContent = "Приём заявок пока настраивается. Позвоните нам по номеру +7 (927) 605-84-88 или напишите на почту.";
+      errorEl.hidden = false;
+      return;
     }
-    announce("Сообщение подготовлено. Отправьте его через выбранный мессенджер или сохраните смету в PDF.");
+    const message = buildOrderMessage(name, phone, extraNotes);
+    if (message.length > 6000) {
+      errorEl.textContent = "Заказ слишком большой для формы. Уменьшите количество позиций или свяжитесь с нами напрямую.";
+      errorEl.hidden = false;
+      return;
+    }
+    const apiUrl = String(CFG.zapnoty.endpointBase || "") + encodeURIComponent(formId);
+    if (!apiUrl.startsWith("https://api.zapnoty.com/f/")) {
+      errorEl.textContent = "Некорректная настройка приёма заявок. Позвоните нам или напишите на почту.";
+      errorEl.hidden = false;
+      return;
+    }
+    // Весь запрос отправляется по HTTPS в Zapnoty; доставка в MAX задаётся в маршрутах формы Zapnoty.
+    // Токены/секреты здесь не используются. Форма не сохраняет контакты в Web Storage.
+    const payload = {
+      name: name,
+      phone: phone,
+      message: message + "\n\nСогласие на обработку ПД (ред. 05.11.2026): подтверждено отдельной отметкой на сайте.",
+    };
+    sendingLead = true;
+    errorEl.hidden = true;
+    const originalText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = "Отправляем заявку…";
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        mode: "cors",
+        credentials: "omit",
+        referrerPolicy: "no-referrer",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      let body = null;
+      try { body = await response.json(); } catch (_) {}
+      if (!response.ok || (body && body.ok === false)) {
+        throw new Error("Zapnoty не подтвердил приём заявки");
+      }
+      // Успех означает приём Zapnoty, а не гарантию доставки уведомления адресату в MAX.
+      const preview = document.getElementById("sent-preview");
+      if (preview) preview.textContent = "Заявка принята Zapnoty. Менеджер свяжется с вами после получения сообщения в MAX.";
+      state.orderSentMode = true;
+      renderDrawerContents();
+      if (!document.getElementById("table-drawer").classList.contains("is-open")) {
+        openTableDrawer(document.activeElement);
+      }
+      document.querySelectorAll("#drawer-order-form, #footer-order-form").forEach((form) => form.reset());
+      announce("Заявка принята сервисом Zapnoty. Ожидайте ответа менеджера.");
+    } catch (_) {
+      errorEl.textContent = "Не удалось подтвердить приём заявки в Zapnoty. Проверьте подключение или свяжитесь с нами по телефону. Перед повторной отправкой уточните, не поступила ли первая заявка.";
+      errorEl.hidden = false;
+      announce(errorEl.textContent);
+    } finally {
+      sendingLead = false;
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
+    }
   }
 
   /* ========================================================================
@@ -706,7 +761,7 @@
 
     document.getElementById("dialog-dish-img").src = item.image;
     document.getElementById("dialog-dish-img").alt = item.name;
-    document.getElementById("dialog-dish-cat").textContent = `${item.category} · № ${item.code}`;
+    document.getElementById("dialog-dish-cat").textContent = item.category;
     document.getElementById("dialog-dish-title").textContent = item.name;
     document.getElementById("dialog-dish-sub").textContent =
       item.subtitle || "Готовим из свежих ингредиентов непосредственно перед выездом";
@@ -1007,7 +1062,7 @@
         return;
       }
       dErr.hidden = true;
-      completeOrderSubmission(nameVal, dPhone.value.trim(), document.getElementById("drawer-address").value.trim());
+      completeOrderSubmission(nameVal, dPhone.value.trim(), document.getElementById("drawer-address").value.trim(), dErr, document.getElementById("drawer-submit-btn"));
     });
 
     // Submit from simple 3-field footer form
@@ -1039,14 +1094,7 @@
         return;
       }
       fErr.hidden = true;
-      completeOrderSubmission(nameVal, fPhone.value.trim(), document.getElementById("footer-notes").value.trim());
-    });
-
-    document.getElementById("sent-tg-btn").addEventListener("click", () => {
-      const txt = document.getElementById("sent-preview").textContent;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(txt).catch(() => {});
-      }
+      completeOrderSubmission(nameVal, fPhone.value.trim(), document.getElementById("footer-notes").value.trim(), fErr, document.querySelector("#footer-order-form button[type=submit]"));
     });
 
     document.getElementById("drawer-pdf-btn").addEventListener("click", () => {

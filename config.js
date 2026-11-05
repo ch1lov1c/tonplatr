@@ -17,8 +17,15 @@ window.TONPLAT_CONFIG = {
   whatsappNumber: "79276058488",
   telegramUrl: "https://t.me/+79608121333",
   vkUrl: "https://vk.com/ton_plat_samara",
-  responsePromise: "Ответим в течение 15 минут",
+  responsePromise: "Ответим после получения заявки",
   seasonNote: "Готовим с любовью · Самара и область",
+
+  // В кабинете Zapnoty: Формы → Создать → разрешённые домены → маршрут получателя MAX.
+  // Вставьте сюда только публичный form_id. НИКОГДА не вставляйте API-ключ zn_... .
+  zapnoty: {
+    formId: "", // ОБЯЗАТЕЛЬНО: ваш публичный идентификатор формы Zapnoty
+    endpointBase: "https://api.zapnoty.com/f/",
+  },
 
   pricing: {
     buffetFrom: 400,

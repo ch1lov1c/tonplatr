@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#FAF7F2">
   <meta name="referrer" content="no-referrer">
   <!-- Защита от сторонних скриптов, фреймов и несанкционированных запросов. На GitHub Pages — через meta. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; frame-src 'none'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src https://api.zapnoty.com; frame-src 'none'; form-action 'self'; upgrade-insecure-requests">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
@@ -54,6 +54,214 @@
     ]
   }
   </script>
+
+  <style>
+    .mobile-hero-panel { display: none; }
+
+    @media (max-width: 767.98px) {
+      body { background: #0f0b08; }
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 1200;
+        background: rgba(18, 13, 9, 0.82);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .header-inner {
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .brand-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+      .brand-logo {
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 999px;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+      }
+      .brand-name {
+        color: #fff7ee;
+        font-size: 18px;
+        line-height: 1;
+      }
+      .brand-tagline,
+      .main-nav,
+      .header-phone { display: none !important; }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+      }
+      .header-actions .btn {
+        min-height: 44px;
+        padding: 0 16px;
+        border-radius: 14px;
+        font-size: 14px;
+        font-weight: 800;
+        white-space: nowrap;
+        box-shadow: 0 12px 28px rgba(159, 58, 19, 0.28);
+      }
+      #header-btn-label { font-size: 14px; }
+      .header-actions .btn svg { display: none; }
+      .count-pill { margin-left: 6px; }
+
+      .hero-full {
+        min-height: calc(100svh - 64px);
+        position: relative;
+      }
+      .hero-full-overlay {
+        background: linear-gradient(180deg, rgba(6,5,4,0.38) 0%, rgba(14,10,8,0.56) 22%, rgba(15,10,8,0.72) 100%);
+      }
+      .hero-particles { display: none; }
+      .hero-full-center {
+        width: 100%;
+        min-height: calc(100svh - 64px);
+        box-sizing: border-box;
+        justify-content: center;
+        gap: 10px;
+        padding: 24px 16px 28px;
+      }
+      .hero-logo-glow {
+        margin-top: 6px;
+        transform: scale(0.9);
+      }
+      .hero-full-logo {
+        width: 88px !important;
+        height: 88px !important;
+      }
+      .hero-roll-wrap {
+        margin-top: -6px;
+      }
+      .hero-full-name {
+        color: #fff7ee;
+        font-size: 18px;
+        letter-spacing: 0.16em;
+      }
+
+      .mobile-hero-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0;
+        padding: 0 2px;
+        color: #fff7ee;
+      }
+      .mobile-hero-title {
+        margin: 0;
+        font-size: clamp(35px, 9vw, 54px);
+        line-height: 0.96;
+        font-weight: 900;
+        text-align: center;
+        color: #fff8ef;
+        text-wrap: balance;
+        text-shadow: 0 4px 22px rgba(0,0,0,0.34);
+      }
+      .mobile-hero-subtitle {
+        margin: 0;
+        text-align: center;
+        font-size: 16px;
+        line-height: 1.25;
+        color: rgba(255, 247, 238, 0.92);
+      }
+      .mobile-hero-benefits {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .mobile-hero-chip {
+        min-height: 92px;
+        padding: 12px 10px;
+        border-radius: 18px;
+        background: rgba(28, 21, 17, 0.56);
+        border: 1px solid rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 14px 30px rgba(0,0,0,0.20);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .mobile-hero-chip strong {
+        display: block;
+        font-size: 17px;
+        line-height: 1.1;
+        color: #f8dfb5;
+      }
+      .mobile-hero-chip span {
+        display: block;
+        margin-top: 4px;
+        font-size: 13px;
+        line-height: 1.15;
+        color: #fff7ee;
+      }
+      .mobile-hero-cta {
+        width: 100%;
+        border: 0;
+        cursor: pointer;
+        font: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 62px;
+        border-radius: 22px;
+        padding: 0 18px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 0.01em;
+        color: #fff;
+        background: linear-gradient(180deg, #dd7741 0%, #c24f23 100%);
+        box-shadow: 0 18px 40px rgba(143, 55, 22, 0.42);
+      }
+      .mobile-hero-trust {
+        margin: 0;
+        text-align: center;
+        font-size: 14px;
+        color: rgba(255, 247, 238, 0.92);
+      }
+      .mobile-hero-trust::before {
+        content: '✓';
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.42);
+        color: #fff7ee;
+        font-size: 12px;
+      }
+      #sets { padding-top: 28px; }
+    }
+    @media (max-width: 767.98px) and (max-height: 730px) {
+      .hero-full-center { padding-top: 12px; padding-bottom: 16px; gap: 4px; }
+      .hero-logo-glow { margin-top: 0; transform: scale(.76); }
+      .hero-full-logo { width: 72px !important; height: 72px !important; }
+      .hero-roll-wrap { margin-top: -14px; }
+      .mobile-hero-panel { gap: 9px; }
+      .mobile-hero-title { font-size: clamp(32px, 8vw, 42px); }
+      .mobile-hero-subtitle { font-size: 14px; }
+      .mobile-hero-chip { min-height: 74px; padding: 7px 5px; }
+      .mobile-hero-chip strong { font-size: 15px; }
+      .mobile-hero-chip span { font-size: 12px; }
+      .mobile-hero-cta { min-height: 52px; }
+    }
+  </style>
 </head>
 <body>
   <div id="preloader" aria-hidden="true">
@@ -133,6 +341,17 @@
             <rect x="88" y="17" width="26" height="6" rx="3" fill="#8A6D3B"/>
           </svg>
           <span class="hero-full-name" id="hero-name">ТОНПЛАТ</span>
+        </div>
+        <div class="mobile-hero-panel" aria-label="Главное предложение">
+          <h1 class="mobile-hero-title">Фуршеты и кейтеринг в Самаре</h1>
+          <p class="mobile-hero-subtitle">Готовые столы, закуски и банкетные наборы</p>
+          <div class="mobile-hero-benefits">
+            <div class="mobile-hero-chip"><strong>от 400 ₽</strong><span>за гостя</span></div>
+            <div class="mobile-hero-chip"><strong>94 блюда</strong><span>на выбор</span></div>
+            <div class="mobile-hero-chip"><strong>Без минимума</strong><span>заказа</span></div>
+          </div>
+          <button class="mobile-hero-cta" id="hero-open-builder" type="button" aria-haspopup="dialog" aria-controls="table-drawer">Собрать на стол</button>
+          <p class="mobile-hero-trust">Оплата после получения</p>
         </div>
       </div>
     </section>
@@ -331,7 +550,7 @@
               Помочь собрать стол под ваш бюджет?
             </h3>
             <p style="margin: 0 0 18px; font-size: var(--text-sm); color: var(--color-text-secondary);">
-              Оставьте имя и телефон — за 15 минут пришлём 2–3 готовых варианта меню с точным расчётом (а если вы уже выбрали блюда, они прикрепятся автоматически).
+              Укажите имя и телефон — менеджер получит заявку через Zapnoty в MAX и свяжется с вами для предварительного расчёта.
             </p>
 
             <form id="footer-order-form" novalidate>
@@ -340,7 +559,7 @@
                 <input id="footer-name" class="form-input" maxlength="80" type="text" placeholder="Елена" autocomplete="name" required>
               </div>
               <div class="form-field">
-                <label class="field-label" for="footer-phone">Телефон (Telegram / WhatsApp / звонок) *</label>
+                <label class="field-label" for="footer-phone">Телефон для связи *</label>
                 <input id="footer-phone" class="form-input" maxlength="30" type="tel" placeholder="+7 (960) 123-45-67" autocomplete="tel" required>
               </div>
               <div class="form-field">
@@ -352,11 +571,11 @@
                 <input id="footer-consent" type="checkbox" required>
                 <span>Даю <a href="./consent.html" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> для ответа на запрос. Подробнее — в <a href="./privacy.html" target="_blank" rel="noopener noreferrer">политике конфиденциальности</a>.</span>
               </label>
-              <p class="privacy-form-note">Данные не отправляются автоматически: после подготовки сообщения вы сами выбираете мессенджер и отправляете запрос.</p>
+              <p class="privacy-form-note">Нажимая «Отправить», вы передаёте указанные данные через Zapnoty для доставки заявки менеджеру в MAX. <a href="./privacy.html" target="_blank" rel="noopener noreferrer">Подробнее об обработке данных</a>.</p>
               <p id="footer-error" class="field-error" role="alert" hidden></p>
 
               <button class="btn btn-primary" type="submit" style="width: 100%; margin-block-start: 4px;">
-                Подготовить запрос на расчёт
+                Отправить заявку в MAX
               </button>
             </form>
           </div>
@@ -371,9 +590,9 @@
           <nav class="footer-legal-links" aria-label="Документы и настройки">
             <a href="./privacy.html">Конфиденциальность</a>
             <a href="./consent.html">Согласие на обработку данных</a>
-            <a href="./cookies.html">Cookies</a>
+            <a href="./cookies.html">Cookie-файлы</a>
             <a href="./terms.html">Условия заказа</a>
-            <button id="privacy-settings-btn" type="button" class="footer-link-button">Настройки хранения</button>
+            <button id="privacy-settings-btn" type="button" class="footer-link-button">Настройки cookies</button>
           </nav>
         </footer>
       </div>
@@ -456,7 +675,7 @@
 
       <!-- 3. Simple Human Order Form right here (Name + Phone + Optional Wishes!) -->
       <div id="drawer-form-box" class="drawer-card">
-        <p class="drawer-card-title">3. Куда отправить подтверждение и расчёт</p>
+        <p class="drawer-card-title">3. Контакт для уточнения заказа</p>
         <form id="drawer-order-form" novalidate>
           <div class="form-field">
             <label class="field-label" for="drawer-name">Ваше имя *</label>
@@ -481,11 +700,11 @@
             <input id="drawer-consent" type="checkbox" required>
             <span>Даю <a href="./consent.html" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> для ответа на запрос. Подробнее — в <a href="./privacy.html" target="_blank" rel="noopener noreferrer">политике конфиденциальности</a>.</span>
           </label>
-          <p class="privacy-form-note">Это подготовка сообщения, а не автоматическая передача данных. Для отправки потребуется выбрать мессенджер.</p>
+          <p class="privacy-form-note">При отправке заявки данные передаются в Zapnoty и направляются менеджеру в MAX. Запрос не является подтверждённым заказом.</p>
           <p id="drawer-error" class="field-error" role="alert" hidden></p>
 
           <button id="drawer-submit-btn" class="btn btn-primary" type="submit" style="width: 100%;">
-            Подготовить сообщение
+            Отправить заявку в MAX
           </button>
 
           <button id="drawer-pdf-btn" class="btn btn-pastel" type="button" style="width: 100%; margin-block-start: 8px;" hidden>
@@ -494,24 +713,17 @@
         </form>
       </div>
 
-      <!-- Sent Confirmation View inside the exact same drawer -->
+      <!-- Подтверждение приёма заявки сервисом Zapnoty -->
       <div id="drawer-sent-box" class="drawer-card" hidden>
-        <span class="sage-pill" style="margin-block-end: 10px;">&#10003; Сообщение подготовлено</span>
-        <h3 style="margin: 0 0 6px; font-family: var(--font-display); font-size: 1.5rem;">Выберите удобный мессенджер</h3>
+        <span class="sage-pill" style="margin-block-end: 10px;">&#10003; Заявка принята</span>
+        <h3 style="margin: 0 0 6px; font-family: var(--font-display); font-size: 1.5rem;">Спасибо! Заявка отправлена</h3>
         <p style="margin: 0 0 12px; font-size: var(--text-xs); color: var(--color-text-secondary);">
-          Выберите мессенджер и отправьте сообщение самостоятельно. В Telegram текст копируется для вставки в чат.
+          Сервис Zapnoty принял заявку и передаст её ответственному менеджеру в MAX согласно настройкам маршрута. Мы свяжемся с вами для уточнения деталей.
         </p>
 
         <div style="display: flex; flex-direction: column; gap: 8px; margin-block-end: 14px;">
-          <a id="sent-wa-btn" class="btn btn-primary" href="https://wa.me/79608121333" target="_blank" rel="noopener noreferrer" style="width: 100%;">
-            Открыть WhatsApp с сообщением
-          </a>
-          <a id="sent-tg-btn" class="btn btn-pastel" href="https://t.me/+79608121333" target="_blank" rel="noopener noreferrer" style="width: 100%;">
-            Открыть Telegram (текст скопируется)
-          </a>
-          <button id="sent-pdf-btn" class="btn btn-outline" type="button" style="width: 100%;">
-            Сохранить смету в PDF
-          </button>
+          <a class="btn btn-pastel" href="tel:+79276058488" style="width: 100%;">Позвонить по вопросу заказа</a>
+          <button id="sent-pdf-btn" class="btn btn-outline" type="button" style="width: 100%;">Сохранить смету в PDF</button>
         </div>
 
         <pre id="sent-preview" style="margin: 0 0 12px; padding: 12px; max-height: 180px; overflow-y: auto; border-radius: 8px; background: var(--color-bg-page); border: 1px solid var(--color-border-subtle); font-family: var(--font-sans); font-size: var(--text-xs); white-space: pre-wrap; overflow-wrap: break-word;"></pre>
@@ -559,16 +771,16 @@
   <!-- Printable Banquet Estimate View -->
   <section id="print-estimate" class="print-estimate" aria-hidden="true"></section>
 
-  <!-- Необязательное долговременное хранение корзины: только после выбора пользователя. -->
+  <!-- Уведомление о первом использовании cookies и выбор хранения корзины. -->
   <section id="privacy-banner" class="privacy-banner" role="region" aria-label="Настройки cookies и хранения" hidden>
     <div class="privacy-banner-content">
-      <strong>Ваши данные — под контролем</strong>
-      <p>Сайт не ставит рекламные cookies и не использует аналитику. Корзина работает в рамках вкладки. Разрешите сохранение корзины между визитами — это необязательно.</p>
-      <a href="./cookies.html">Как устроено хранение данных</a>
+      <strong>Мы используем файлы cookie</strong>
+      <p>Используем технический cookie, чтобы запомнить ваш выбор. Корзина работает в текущей вкладке; с вашего разрешения её можно сохранять между визитами. Рекламных и аналитических cookies на сайте нет.</p>
+      <a href="./cookies.html">Подробнее о cookies</a>
     </div>
     <div class="privacy-banner-actions">
-      <button id="privacy-reject" class="btn btn-outline" type="button">Только необходимое</button>
-      <button id="privacy-accept" class="btn btn-primary" type="button">Сохранять корзину</button>
+      <button id="privacy-reject" class="btn btn-outline" type="button">Только необходимые</button>
+      <button id="privacy-accept" class="btn btn-primary" type="button">Разрешить сохранение</button>
     </div>
   </section>
 
