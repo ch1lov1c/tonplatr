@@ -1931,7 +1931,7 @@ body.tonplat-order-open .site-header { display: none !important; }
   background: var(--color-bg-page);
   color: var(--color-text-primary);
   font-size: 0.875rem; font-weight: 700; line-height: 1.2;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .drawer-quick-nav a:last-child {
   border-color: var(--color-accent-solid);
@@ -2043,11 +2043,11 @@ body.tonplat-order-open .site-header { display: none !important; }
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  color: #111 !important;
+  color: #000000 !important;
   font-size: clamp(1.25rem, 4vw, 1.5rem);
 }
 @media (max-width: 767.98px) {
-  .site-header .brand-name { color: #111 !important; font-size: 23px; }
+  .site-header .brand-name { color: #000000 !important; font-size: 23px; }
 }
 
 /* Мелкая заметка под футером */

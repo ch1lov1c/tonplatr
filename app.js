@@ -1149,13 +1149,6 @@
   syncAllCartUI();
   bindEvents();
 
-  /* Прелоадер: скрыть после полной загрузки страницы */
-  const preloader = document.getElementById("preloader");
-  const hidePreloader = () => preloader && preloader.classList.add("done");
-  if (document.readyState === "complete") hidePreloader();
-  else window.addEventListener("load", hidePreloader);
-  setTimeout(hidePreloader, 2500); /* запасной таймер */
-
   /* Анимированное добавление слов на первом экране: Кейтеринг · Фуршеты · Самара */
   (function animateHeroWords() {
     const el = document.getElementById("hero-words-anim");
