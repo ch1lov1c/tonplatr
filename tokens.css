@@ -1,0 +1,101 @@
+/* ==========================================================================
+   ТонПлат · Design System Tokens (Soft Warm Pastel Catering Website)
+   All assets sit in the single flat root folder (./...) with zero subfolders.
+   Follows jakubkrehel/skills (two-tier tokens, WCAG AA contrast, concentric radii).
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1. Soft Warm Pastel Ramp (Alabaster, Oat Linen, Menu Cream, Sage & Cocoa)
+     ------------------------------------------------------------------------ */
+  --pastel-porcelain: #FFFEFC;
+  --pastel-alabaster: #FAF7F2;
+  --pastel-menu-cream: #F7F3E7; /* Matches die-cut corner badges 01..94 seamlessly */
+  --pastel-linen: #F3ECE2;
+  --pastel-champagne: #ECE2D2;
+  --pastel-sand-hover: #E4D7C3;
+
+  --pastel-sage-bg: #EAF1EB;
+  --pastel-sage-text: #35523A;  /* 7.56:1 WCAG AA */
+
+  --pastel-blush-bg: #FCEEEE;
+  --pastel-blush-text: #8A2424;
+
+  --line-soft: #E5DDD0;
+  --line-gold: #D3C3AB;
+  --line-input: #9B8878;        /* 3.39:1 >= 3:1 control border contrast */
+
+  --cocoa-primary: #6B4C35;     /* Warm soft roasted cocoa CTA (7.63:1) */
+  --cocoa-hover: #563B28;
+  --bronze-price: #7A5835;      /* Antique warm bronze price (5.78:1) */
+  --taupe-muted: #685649;       /* Warm cocoa-taupe secondary ink (5.94:1) */
+  --ink-charcoal: #2A201A;      /* Warm espresso ink (14.89:1, zero harsh black) */
+
+  /* ------------------------------------------------------------------------
+     2. Semantic Role Tokens
+     ------------------------------------------------------------------------ */
+  --color-bg-page: var(--pastel-alabaster);
+  --color-bg-band: var(--pastel-linen);
+  --color-bg-menu: var(--pastel-menu-cream);
+  --color-bg-surface: var(--pastel-porcelain);
+  --color-bg-subtle: var(--pastel-champagne);
+  --color-bg-hover: var(--pastel-sand-hover);
+  --color-bg-header: rgba(250, 247, 242, 0.94);
+
+  --color-text-primary: var(--ink-charcoal);
+  --color-text-secondary: var(--taupe-muted);
+  --color-text-price: var(--bronze-price);
+
+  --color-accent-solid: var(--cocoa-primary);
+  --color-accent-solid-hover: var(--cocoa-hover);
+  --color-accent-on-solid: #FFFDF9;
+
+  --color-badge-sage-bg: var(--pastel-sage-bg);
+  --color-badge-sage-text: var(--pastel-sage-text);
+
+  --color-border-subtle: var(--line-soft);
+  --color-border-accent: var(--line-gold);
+  --color-border-input: var(--line-input);
+
+  --color-status-err-bg: var(--pastel-blush-bg);
+  --color-status-err-text: var(--pastel-blush-text);
+
+  --color-scrim: rgba(42, 32, 26, 0.44);
+  --color-selection-bg: var(--pastel-champagne);
+  --color-selection-text: var(--ink-charcoal);
+
+  /* ------------------------------------------------------------------------
+     3. Soft Airy Elevation & Image Outline (better-ui)
+     ------------------------------------------------------------------------ */
+  --shadow-card:
+    0px 0px 0px 1px oklch(0 0 0 / 0.05),
+    0px 4px 16px -4px oklch(0 0 0 / 0.05);
+  --shadow-floating:
+    0px 0px 0px 1px oklch(0 0 0 / 0.08),
+    0px 14px 36px -8px rgba(42, 32, 26, 0.2);
+  --image-outline: oklch(0 0 0 / 0.08);
+
+  /* ------------------------------------------------------------------------
+     4. Typography Scale & Concentric Radii
+     ------------------------------------------------------------------------ */
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --text-2xs: 0.6875rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-h2: clamp(1.875rem, 3.6vw, 2.75rem);
+  --text-h1: clamp(2.25rem, 4.6vw, 3.625rem);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --ease-ui: cubic-bezier(0.2, 0, 0, 1);
+  --header-height: 74px;
+  --scroll-offset: 136px;
+}

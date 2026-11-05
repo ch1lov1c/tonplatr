@@ -1,0 +1,34 @@
+/* Лёгкие правовые блоки, без расширения подвала */
+.footer-bottom {display:block; padding-block:24px 28px; margin-block-start:32px; font-size: .82rem; line-height:1.55;}
+.footer-identity {display:flex; align-items:center; gap:6px 12px; flex-wrap:wrap;}
+.footer-identity strong {font-weight:700; color:var(--color-text-primary);}
+.footer-identity a, .footer-legal-links a {color:inherit; text-decoration:none;}
+.footer-identity a:hover, .footer-legal-links a:hover {text-decoration:underline;}
+.footer-legal-links {display:flex; gap:7px 20px; flex-wrap:wrap; padding-top:13px;}
+.footer-link-button {border:0; padding:0; font:inherit; color:inherit; background:none; cursor:pointer; text-decoration:underline; text-underline-offset:3px;}
+.privacy-form-consent {display:flex; gap:10px; align-items:flex-start; margin:12px 0 8px; font-size:.8rem; line-height:1.5; color:var(--color-text-secondary); cursor:pointer;}
+.privacy-form-consent input {width:18px; height:18px; margin:1px 0 0; flex-shrink:0; accent-color:var(--color-text-primary);}
+.privacy-form-consent a, .privacy-form-note a {color:var(--color-text-primary); text-underline-offset:2px;}
+.privacy-form-note {font-size:.77rem; color:var(--color-text-secondary); line-height:1.5; margin:0 0 12px;}
+.privacy-banner {position:fixed; z-index:1500; inset-inline:clamp(12px,3vw,36px); bottom:clamp(12px,3vw,24px); max-width:1050px; margin-inline:auto; background:#fffdfa; color:#43382c; border:1px solid #d9c8b9; border-radius:18px; padding:18px 20px; box-shadow:0 18px 60px rgba(36,27,22,.25); display:flex; gap:26px; align-items:center; justify-content:space-between;}
+.privacy-banner[hidden] {display:none!important;}
+.privacy-banner-content {min-width:0;}
+.privacy-banner-content strong {font-size:1rem;}
+.privacy-banner-content p {font-size:.82rem; line-height:1.55; margin:5px 0 4px;}
+.privacy-banner-content a {font-size:.81rem; color:#5d4e42; text-underline-offset:3px;}
+.privacy-banner-actions {display:flex; flex-wrap:wrap; gap:8px; flex-shrink:0;}
+.privacy-banner-actions .btn {white-space:nowrap; min-height:44px; font-size:.83rem;}
+@media(max-width:740px){.privacy-banner{display:block;padding:16px;max-height:calc(100dvh - 24px);overflow-y:auto;}.privacy-banner-actions{margin-top:13px;}.privacy-banner-actions .btn{flex:1;white-space:normal;}.footer-legal-links{gap:12px 17px;}}
+/* Страницы документов */
+.legal-page {background:#faf7f2; color:#44392e; font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif; min-height:100vh;}
+.legal-top {max-width:900px;margin:auto;padding:24px 24px 8px;}
+.legal-top a {color:#5f463c;text-decoration:none;}
+.legal-card {max-width:900px;margin:14px auto 36px;padding:clamp(24px,5vw,52px);background:#fffdfa;border:1px solid #e8dfd7;border-radius:20px;box-shadow:0 10px 40px rgba(71,55,44,.05);}
+.legal-card h1 {font-size:clamp(1.65rem,4vw,2.25rem);line-height:1.22;margin:0 0 8px;}
+.legal-card h2 {font-size:1.18rem; margin:30px 0 8px;}
+.legal-card p,.legal-card li {line-height:1.75;font-size:.96rem;}
+.legal-card ul {padding-left:22px;}
+.legal-card a {color:#5f463c;word-break:break-word;}
+.legal-note {font-size:.83rem;color:#806e60;margin-bottom:18px;}
+.legal-footer {max-width:900px;margin:0 auto;padding:0 24px 35px;font-size:.85rem;}
+.legal-footer a{color:#5f463c;}
