@@ -272,11 +272,6 @@
   </style>
 </head>
 <body>
-  <div id="preloader" aria-hidden="true">
-    <img src="./logo.png?v=20261105" width="84" height="84" alt="">
-    <span class="preloader-name">ТОНПЛАТ</span>
-    <span class="preloader-bar"><span></span></span>
-  </div>
   <a class="skip-link" href="#main-content">Перейти к содержимому</a>
 
   <div id="live-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
@@ -590,12 +585,13 @@
             <a href="mailto:tonplatsamara@gmail.com">tonplatsamara@gmail.com</a>
           </div>
           <nav class="footer-legal-links" aria-label="Документы и настройки">
-            <a href="./privacy.html">Конфиденциальность</a>
-            <a href="./consent.html">Согласие на обработку данных</a>
-            <a href="./cookies.html">Cookie-файлы</a>
-            <a href="./terms.html">Условия заказа</a>
+            <a href="#privacy">Конфиденциальность</a>
+            <a href="#consent">Согласие на обработку данных</a>
+            <a href="#cookies">Cookie-файлы</a>
+            <a href="#terms">Условия заказа</a>
             <button id="privacy-settings-btn" type="button" class="footer-link-button">Настройки cookies</button>
           </nav>
+          <p class="footer-dish-note">Изображение блюда может немного отличаться от реального.</p>
         </footer>
       </div>
     </section>
@@ -779,18 +775,64 @@
   <!-- Printable Banquet Estimate View -->
   <section id="print-estimate" class="print-estimate" aria-hidden="true"></section>
 
-  <!-- Уведомление о первом использовании cookies и выбор хранения корзины. -->
-  <section id="privacy-banner" class="privacy-banner" role="region" aria-label="Настройки cookies и хранения" hidden>
+  <!-- Уведомление об использовании cookies. -->
+  <section id="privacy-banner" class="privacy-banner" role="region" aria-label="Информация о cookies" hidden>
     <div class="privacy-banner-content">
-      <strong>Мы используем файлы cookie</strong>
-      <p>Используем технический cookie, чтобы запомнить ваш выбор. Корзина работает в текущей вкладке; с вашего разрешения её можно сохранять между визитами. Рекламных и аналитических cookies на сайте нет.</p>
-      <a href="./cookies.html">Подробнее о cookies</a>
+      <strong>Мы используем куки</strong>
     </div>
     <div class="privacy-banner-actions">
-      <button id="privacy-reject" class="btn btn-outline" type="button">Только необходимые</button>
-      <button id="privacy-accept" class="btn btn-primary" type="button">Разрешить сохранение</button>
+      <button id="privacy-accept" class="btn btn-primary" type="button">ОК</button>
     </div>
   </section>
+
+  <!-- Встроенные разделы правовых документов (открываются по ссылкам из футера) -->
+  <section id="privacy" class="legal-page" hidden>
+    <div class="legal-card">
+      <button type="button" class="footer-link-button" onclick="this.closest('.legal-page').hidden=true">Закрыть</button>
+      <h1>Конфиденциальность</h1>
+      <p>Мы не собираем и не передаём третьим лицам ваши персональные данные, кроме тех, которые вы сами указали в форме заказа для связи с вами.</p>
+      <p>Данные используются только для оформления и доставки заказа.</p>
+    </div>
+  </section>
+
+  <section id="consent" class="legal-page" hidden>
+    <div class="legal-card">
+      <button type="button" class="footer-link-button" onclick="this.closest('.legal-page').hidden=true">Закрыть</button>
+      <h1>Согласие на обработку персональных данных</h1>
+      <p>Нажимая «Отправить» в форме заказа, вы даёте согласие на обработку указанных вами данных (имя, телефон, примечания) исключительно для обработки вашего заказа и обратной связи.</p>
+    </div>
+  </section>
+
+  <section id="cookies" class="legal-page" hidden>
+    <div class="legal-card">
+      <button type="button" class="footer-link-button" onclick="this.closest('.legal-page').hidden=true">Закрыть</button>
+      <h1>Cookie-файлы</h1>
+      <p>На сайте используются только технические cookie для работы корзины в текущей вкладке. Рекламных и аналитических cookie нет.</p>
+    </div>
+  </section>
+
+  <section id="terms" class="legal-page" hidden>
+    <div class="legal-card">
+      <button type="button" class="footer-link-button" onclick="this.closest('.legal-page').hidden=true">Закрыть</button>
+      <h1>Условия заказа</h1>
+      <p>Заказ оформляется через форму на сайте или по телефону. Оплата после получения. Минимальная сумма заказа не установлена.</p>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.footer-legal-links a[href^="#"]').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.hidden = false;
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      });
+    });
+  </script>
 
   <script src="./config.js"></script>
   <script src="./menu-data.js"></script>

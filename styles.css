@@ -1942,3 +1942,118 @@ body.tonplat-order-open .site-header { display: none !important; }
   .drawer-head { padding: 12px; }
   .drawer-quick-nav a { font-size: 0.8rem; padding-inline: 6px; }
 }
+
+
+/* ===== Финальная адаптация первого экрана и конструктора заказа ===== */
+/* Бренд и подписи отображаются сразу, без анимации появления. */
+.hero-full-logo,
+.hero-full-name,
+.hero-full-tag,
+.hero-full-city,
+.hero-logo-glow {
+  animation: none !important;
+}
+
+/* Конструктор заказа: фиксированная панель, самостоятельная прокрутка и
+   предсказуемые размеры элементов, чтобы содержимое не разъезжалось. */
+.table-drawer {
+  width: min(560px, 100vw);
+  max-width: 100vw;
+  min-width: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.drawer-head {
+  flex: 0 0 auto;
+  min-width: 0;
+  padding: 14px clamp(14px, 3vw, 22px);
+}
+.drawer-head-top,
+.drawer-head-brand { min-width: 0; }
+.drawer-head-brand { flex: 1 1 auto; }
+.drawer-head-brand img { width: 40px; height: 40px; flex: 0 0 40px; object-fit: cover; }
+.drawer-head-brand > div { flex: 1 1 auto; }
+.drawer-title { font-size: clamp(1.25rem, 4.5vw, 1.625rem); line-height: 1.12; }
+#drawer-subtitle { display: block; margin-top: 3px; line-height: 1.35; overflow-wrap: anywhere; }
+.drawer-scroll {
+  min-height: 0;
+  padding: 14px clamp(12px, 3vw, 22px) max(22px, env(safe-area-inset-bottom));
+  gap: 12px;
+  overscroll-behavior: contain;
+}
+.drawer-card { min-width: 0; padding: 14px; overflow-wrap: anywhere; }
+.drawer-card-title { line-height: 1.35; letter-spacing: .055em; }
+.drawer-card > form { min-width: 0; }
+.drawer-card .form-field { min-width: 0; margin-block-end: 12px; }
+.drawer-card .field-label { display: block; line-height: 1.35; }
+.drawer-card .form-input { display: block; min-width: 0; max-width: 100%; box-sizing: border-box; }
+.drawer-card .privacy-form-consent { display: flex; align-items: flex-start; gap: 9px; line-height: 1.45; }
+.drawer-card .privacy-form-consent input { flex: 0 0 auto; margin: 3px 0 0; }
+.drawer-card .privacy-form-note { line-height: 1.45; }
+.drawer-card .btn { max-width: 100%; white-space: normal; line-height: 1.25; }
+#drawer-items-box { min-width: 0; }
+#drawer-items-box > p { line-height: 1.45 !important; }
+#drawer-items-box .mini-preset-btn { min-width: 0; text-align: left; }
+#drawer-items-box .mini-preset-btn > span { min-width: 0; }
+#drawer-items-box .mini-preset-btn strong { overflow-wrap: anywhere; }
+.cart-row { min-width: 0; grid-template-columns: 56px minmax(0, 1fr); gap: 10px; }
+.cart-row > div { min-width: 0; }
+.cart-row strong { overflow-wrap: anywhere; }
+.cart-row .qty-stepper { flex: 0 0 auto; }
+.cart-row .qty-input { width: 34px; }
+#drawer-occasions { min-width: 0; }
+#drawer-occasions .tag-chip { max-width: 100%; white-space: normal; line-height: 1.25; }
+
+@media (max-width: 767.98px) {
+  .hero-full-name {
+    font-size: clamp(2.35rem, 10vw, 3.4rem) !important;
+    letter-spacing: .11em;
+    line-height: 1.05;
+  }
+  .mobile-hero-title { font-size: clamp(1.25rem, 5vw, 1.75rem); line-height: 1.15; }
+  .table-drawer {
+    inset: 0;
+    width: 100vw;
+    max-width: 100vw;
+    border-inline: 0;
+  }
+  .drawer-head { padding-top: max(12px, env(safe-area-inset-top)); }
+  .drawer-scroll { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .drawer-card { padding: 12px; border-radius: 14px; }
+  #drawer-items-box .mini-preset-btn { gap: 8px; padding: 10px; }
+}
+
+@media (max-width: 360px) {
+  .hero-full-name { font-size: clamp(2.15rem, 9.5vw, 2.5rem) !important; letter-spacing: .08em; }
+  .drawer-scroll { padding-inline: 10px; }
+  .drawer-card { padding: 10px; }
+  .cart-row { grid-template-columns: 48px minmax(0, 1fr); gap: 8px; }
+  .cart-thumb { width: 48px; height: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .table-drawer, .backdrop { transition: none !important; }
+}
+
+/* Бренд в шапке всегда виден и не зависит от загрузки логотипа. */
+.site-header .brand-link > span { display: block !important; min-width: 0; }
+.site-header .brand-name {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #111 !important;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+}
+@media (max-width: 767.98px) {
+  .site-header .brand-name { color: #111 !important; font-size: 23px; }
+}
+
+/* Мелкая заметка под футером */
+.footer-dish-note {
+  font-size: 0.72rem;
+  color: #8a7a6b;
+  margin-top: 10px;
+  text-align: center;
+}
