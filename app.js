@@ -329,6 +329,7 @@
           loading="lazy"
           decoding="async"
         >
+        ${item.overlayBadge ? "" : `<span class="dish-num">${item.id}</span>`}
         ${qty > 0 ? `<span class="in-cart-ribbon">${qty}\u00A0шт.</span>` : ""}
       </button>
 

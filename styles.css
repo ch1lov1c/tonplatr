@@ -790,6 +790,30 @@ summary,
   font-variant-numeric: lining-nums tabular-nums;
 }
 
+/* Номер позиции на фото блюда (как в меню PDF) */
+.dish-photo-btn {
+  position: relative;
+  display: inline-block;
+}
+.dish-num {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-start: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: rgba(250, 247, 242, 0.92);
+  color: #43382c;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  z-index: 10;
+}
+
 .menu-search-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -1838,7 +1862,7 @@ summary,
 /* ==== Плавная прокрутка к разделам меню ==== */
 html { scroll-behavior: smooth; }
 .menu-chapter { scroll-margin-top: 140px; }
-#menu, #sets, #portfolio, #faq, #contacts { scroll-margin-top: 90px; }
+#menu, #sets, #portfolio, #venue, #faq, #contacts { scroll-margin-top: 90px; }
 
 /* ==== Первый экран — финальный дизайн ==== */
 .hero-full-overlay {
@@ -2056,4 +2080,69 @@ body.tonplat-order-open .site-header { display: none !important; }
   color: #8a7a6b;
   margin-top: 10px;
   text-align: center;
+}
+
+/* =========================================================================
+   Venue Section — Пространство для мероприятий
+   ========================================================================= */
+.venue-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.venue-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  padding: 20px;
+}
+.venue-image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+}
+.venue-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.venue-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.venue-info p {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+.venue-price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+.venue-note {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+.venue-list {
+  margin: 0 0 12px;
+  padding-left: 18px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+.venue-list li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 768px) {
+  .venue-grid {
+    grid-template-columns: 1fr;
+  }
 }
