@@ -329,7 +329,7 @@
           loading="lazy"
           decoding="async"
         >
-        ${item.overlayBadge ? "" : `<span class="dish-num">${item.id}</span>`}
+        ${item.image.includes("item-29.jpg") || item.image.includes("item-32.jpg") || item.image.includes("item-65.jpg") ? "" : `<span class="dish-num">${item.id}</span>`}
         ${qty > 0 ? `<span class="in-cart-ribbon">${qty}\u00A0шт.</span>` : ""}
       </button>
 

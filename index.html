@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#FAF7F2">
   <meta name="referrer" content="no-referrer">
   <!-- Защита от сторонних скриптов, фреймов и несанкционированных запросов. На GitHub Pages — через meta. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'sha256-YQ9EUnD1vRyJuk60lekfo6aTLXPX0qWXtQfLLjce4Ic=' 'sha256-mPKrCJinfHENJG/898+B/S3UeJ8DrK4Ab0VRIA9923U=' 'sha256-xySx4EGgfjyvltjI2FqCAuoPCCnh3+sW7mUHzLq4BTM=' 'sha256-4ThM8s+e2XSMfED57I0FdD282pi5BUhYE4s3Xp4i57Q='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src https://api.zapnoty.com; frame-src 'none'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'sha256-YQ9EUnD1vRyJuk60lekfo6aTLXPX0qWXtQfLLjce4Ic=' 'sha256-mPKrCJinfHENJG/898+B/S3UeJ8DrK4Ab0VRIA9923U=' 'sha256-xySx4EGgfjyvltjI2FqCAuoPCCnh3+sW7mUHzLq4BTM=' 'sha256-4PwXSOHl/vOS+5iFw9EIjTk4Jcc0zvwOtZBQ18kvNM0='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src https://api.zapnoty.com; frame-src 'none'; form-action 'self'; upgrade-insecure-requests">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
@@ -5259,7 +5259,7 @@ window.TONPLAT_DATA = {
           loading="lazy"
           decoding="async"
         >
-        ${item.overlayBadge ? "" : `<span class="dish-num">${item.id}</span>`}
+        ${item.image.includes("item-29.jpg") || item.image.includes("item-32.jpg") || item.image.includes("item-65.jpg") ? "" : `<span class="dish-num">${item.id}</span>`}
         ${qty > 0 ? `<span class="in-cart-ribbon">${qty}\u00A0шт.</span>` : ""}
       </button>
 
