@@ -244,7 +244,7 @@
      2. Menu Catalog, Search & Filters
      ======================================================================== */
   const TAG_DEFS = [
-    { id: "all", label: "Все 94" },
+    { id: "all", label: `Все ${DATA.items.length}` },
     { id: "poultry", label: "Птица" },
     { id: "seafood", label: "Рыба и морепродукты" },
     { id: "meat", label: "Мясо" },
@@ -329,7 +329,7 @@
           loading="lazy"
           decoding="async"
         >
-        ${item.image.includes("item-29.jpg") || item.image.includes("item-32.jpg") || item.image.includes("item-65.jpg") ? "" : `<span class="dish-num">${item.id}</span>`}
+        <span class="dish-num">${item.id}</span>
         ${qty > 0 ? `<span class="in-cart-ribbon">${qty}\u00A0шт.</span>` : ""}
       </button>
 
@@ -409,7 +409,7 @@
     if (htmlParts.length === 0) {
       container.innerHTML = `<div style="text-align: center; padding: 36px 16px;">
         <h3 style="margin: 0 0 8px; font-family: var(--font-display); font-size: 1.5rem;">Ничего не нашлось</h3>
-        <p style="margin: 0 0 16px; font-size: var(--text-sm); color: var(--color-text-secondary);">Сбросьте поиск или фильтр, чтобы вернуться ко всем 94 блюдам меню.</p>
+        <p style="margin: 0 0 16px; font-size: var(--text-sm); color: var(--color-text-secondary);">Сбросьте поиск или фильтр, чтобы вернуться ко всем ${DATA.items.length} блюдам меню.</p>
         <button id="reset-filters-btn" class="btn btn-primary" type="button">Показать все блюда</button>
       </div>`;
       const btn = document.getElementById("reset-filters-btn");
