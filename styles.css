@@ -790,27 +790,35 @@ summary,
   font-variant-numeric: lining-nums tabular-nums;
 }
 
-/* Номер позиции на фото блюда (как в меню PDF) */
+/* Номер позиции: единый непрозрачный квадрат поверх впечатанного в фото.
+   Замер по 87 фото: печатный квадрат 97–101 × 92–94 px при 882×496,
+   т.е. не более 11.4% ширины и 18.7% высоты карточки 16:9.
+   Квадрат 13% ширины (= 23.1% высоты) с началом в (0,0) перекрывает
+   его у ВСЕХ позиций, включая обрезанные/увеличенные фото. */
 .dish-photo-btn {
   position: relative;
   display: inline-block;
+  container-type: inline-size;
 }
 .dish-num {
   position: absolute;
-  inset-block-start: 10px;
-  inset-inline-start: 10px;
-  width: 34px;
-  height: 34px;
-  border-radius: 6px;
-  background: rgba(250, 247, 242, 0.92);
-  color: #43382c;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 13%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 0;
+  background: #f9f5e9;
+  color: #98794a;
   font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.85rem;                 /* fallback без container queries */
+  font-size: clamp(12px, 4cqw, 34px);
+  font-weight: 600;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  pointer-events: none;
   z-index: 10;
 }
 
@@ -1699,6 +1707,7 @@ summary,
   border-radius: var(--radius-md);
   overflow: hidden;
   aspect-ratio: 16 / 9;
+  container-type: inline-size;
 }
 
 .dialog-media img {
@@ -1931,15 +1940,8 @@ html { scroll-behavior: smooth; }
 /* подпись «Кейтеринг · Самара» в шапке видна всегда */
 @media (max-width: 680px) { .brand-tagline { display: block; } }
 
-/* Нумерация блюд на карточках */
-.dish-photo-btn { position: relative; }
-.dish-num {
-  position: absolute; inset-block-start: 8px; inset-inline-start: 8px;
-  padding: 2px 8px; border-radius: 999px;
-  background: rgba(30,24,16,.72); color: #FFF9F0;
-  font-size: var(--text-xs); font-weight: 700; letter-spacing: .04em;
-  backdrop-filter: blur(2px);
-}
+/* Единый светлый квадрат номера задан правилом .dish-num выше.
+   Тёмная полупрозрачная «пилюля» удалена: она не перекрывала печатный номер. */
 .dish-code { font-size: var(--text-xs); font-weight: 700; color: var(--color-text-price); white-space: nowrap; }
 
 /* ====== Окно составления заказа: постоянная навигация ====== */
@@ -2142,8 +2144,43 @@ body.tonplat-order-open .site-header { display: none !important; }
   margin-bottom: 6px;
 }
 
+/* Фотографии зала (1 400 ₽/час) */
+.venue-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-block-start: 26px;
+}
+.venue-shot {
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-surface);
+}
+.venue-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.venue-shot figcaption {
+  margin: 0;
+  padding: 10px 14px 12px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
 @media (max-width: 768px) {
   .venue-grid {
     grid-template-columns: 1fr;
+  }
+  .venue-gallery {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-block-start: 20px;
   }
 }

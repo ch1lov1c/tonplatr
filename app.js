@@ -763,6 +763,7 @@
 
     document.getElementById("dialog-dish-img").src = item.image;
     document.getElementById("dialog-dish-img").alt = item.name;
+    document.getElementById("dialog-dish-num").textContent = item.id;
     document.getElementById("dialog-dish-cat").textContent = item.category;
     document.getElementById("dialog-dish-title").textContent = item.name;
     document.getElementById("dialog-dish-sub").textContent =

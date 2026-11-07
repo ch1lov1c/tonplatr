@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ТонПлат — Выездной кейтеринг, фуршеты и банкеты в Самаре</title>
+  <meta name="description" content="Кейтеринг ТонПлат в Самаре: фуршеты от 400 ₽/чел., банкеты от 1 800 ₽/чел., 97 блюд из-под ножа с ценами за 1 шт., без минимальной суммы заказа и с оплатой после получения.">
+  <meta name="theme-color" content="#FAF7F2">
+  <meta name="referrer" content="no-referrer">
+  <!-- Защита от сторонних скриптов, фреймов и несанкционированных запросов. На GitHub Pages — через meta. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src https://api.zapnoty.com; frame-src 'none'; form-action 'self'; upgrade-insecure-requests">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="ТонПлат — Кейтеринг и фуршеты в Самаре">
+  <meta property="og:description" content="Соберите стол за минуту из 97 закусок, салатов и горячих блюд — без минимального заказа и с оплатой при получении.">
+  <meta property="og:image" content="./hero-cover.jpg">
+
+  <!-- Новый логотип используется и как иконка вкладки (favicon), и как логотип на сайте -->
+  <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./logo.png">
+  <link rel="apple-touch-icon" href="./logo.png">
+
+  <link rel="stylesheet" href="./tokens.css">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./legal.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "ТонПлат",
+    "legalName": "ООО «Тон Плат»",
+    "taxID": "6314049248",
+    "vatID": "631401001",
+    "registrationNumber": "1226300038326",
+    "email": "tonplatsamara@gmail.com",
+    "description": "Выездной кейтеринг в Самаре и Самарской области: фуршеты, банкеты, корпоративы, кофе-брейки и свадьбы.",
+    "image": "./logo.png",
+    "telephone": "+7-960-812-13-33",
+    "priceRange": "₽₽",
+    "servesCuisine": "Европейская, фуршетная, банкетная",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Самара",
+      "addressRegion": "Самарская область",
+      "streetAddress": "ул. Ереванская, дом 13",
+      "postalCode": "443061",
+      "addressCountry": "RU"
+    },
+    "sameAs": [
+      "https://vk.com/ton_plat_samara",
+      "https://t.me/+79608121333"
+    ]
+  }
+  </script>
+
+  <style>
+    .mobile-hero-panel { display: none; }
+
+    /* The order dialog has its own navigation; hide the site header while open. */
+    body.tonplat-order-open .site-header { display: none !important; }
+
+    @media (max-width: 767.98px) {
+      body { background: #0f0b08; }
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 1200;
+        background: rgba(18, 13, 9, 0.82);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .header-inner {
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .brand-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+      .brand-logo {
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 999px;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+      }
+      .brand-name {
+        color: #fff7ee;
+        font-size: 23px;
+        line-height: 1.04;
+      }
+      .brand-tagline {
+        display: block !important;
+        color: rgba(255, 247, 238, .78);
+        font-size: 10px;
+        line-height: 1.2;
+        margin-top: 3px;
+        letter-spacing: .02em;
+      }
+      .main-nav,
+      .header-phone { display: none !important; }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+      }
+      .header-actions .btn {
+        min-height: 44px;
+        padding: 0 16px;
+        border-radius: 14px;
+        font-size: 14px;
+        font-weight: 800;
+        white-space: nowrap;
+        box-shadow: 0 12px 28px rgba(159, 58, 19, 0.28);
+      }
+      #header-btn-label { font-size: 14px; }
+      .header-actions .btn svg { display: none; }
+      .count-pill { margin-left: 6px; }
+
+      .hero-full {
+        min-height: calc(100svh - 64px);
+        position: relative;
+      }
+      .hero-full-overlay {
+        background: linear-gradient(180deg, rgba(6,5,4,0.38) 0%, rgba(14,10,8,0.56) 22%, rgba(15,10,8,0.72) 100%);
+      }
+      .hero-particles { display: none; }
+      .hero-full-center {
+        width: 100%;
+        min-height: calc(100svh - 64px);
+        box-sizing: border-box;
+        justify-content: center;
+        gap: 10px;
+        padding: 24px 16px 28px;
+      }
+      .hero-logo-glow {
+        margin-top: 6px;
+        transform: scale(0.9);
+      }
+      .hero-full-logo {
+        width: 88px !important;
+        height: 88px !important;
+      }
+      .hero-wordmark-wrap { margin-top: -6px; }
+      .hero-full-name {
+        color: #fff7ee;
+        font-size: clamp(26px, 7vw, 32px);
+        letter-spacing: 0.16em;
+      }
+
+      .mobile-hero-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0;
+        padding: 0 2px;
+        color: #fff7ee;
+      }
+      .mobile-hero-title {
+        margin: 0;
+        font-size: clamp(35px, 9vw, 54px);
+        line-height: 0.96;
+        font-weight: 900;
+        text-align: center;
+        color: #fff8ef;
+        text-wrap: balance;
+        text-shadow: 0 4px 22px rgba(0,0,0,0.34);
+      }
+      .mobile-hero-subtitle {
+        margin: 0;
+        text-align: center;
+        font-size: 16px;
+        line-height: 1.25;
+        color: rgba(255, 247, 238, 0.92);
+      }
+      .mobile-hero-benefits {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .mobile-hero-chip {
+        min-height: 92px;
+        padding: 12px 10px;
+        border-radius: 18px;
+        background: rgba(28, 21, 17, 0.56);
+        border: 1px solid rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 14px 30px rgba(0,0,0,0.20);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .mobile-hero-chip strong {
+        display: block;
+        font-size: 17px;
+        line-height: 1.1;
+        color: #f8dfb5;
+      }
+      .mobile-hero-chip span {
+        display: block;
+        margin-top: 4px;
+        font-size: 13px;
+        line-height: 1.15;
+        color: #fff7ee;
+      }
+      .mobile-hero-cta {
+        width: 100%;
+        border: 0;
+        cursor: pointer;
+        font: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 62px;
+        border-radius: 22px;
+        padding: 0 18px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 0.01em;
+        color: #fff;
+        background: linear-gradient(180deg, #dd7741 0%, #c24f23 100%);
+        box-shadow: 0 18px 40px rgba(143, 55, 22, 0.42);
+      }
+      .mobile-hero-trust {
+        margin: 0;
+        text-align: center;
+        font-size: 14px;
+        color: rgba(255, 247, 238, 0.92);
+      }
+      .mobile-hero-trust::before {
+        content: '✓';
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.42);
+        color: #fff7ee;
+        font-size: 12px;
+      }
+      #sets { padding-top: 28px; }
+    }
+    @media (max-width: 767.98px) and (max-height: 730px) {
+      .hero-full-center { padding-top: 12px; padding-bottom: 16px; gap: 4px; }
+      .hero-logo-glow { margin-top: 0; transform: scale(.76); }
+      .hero-full-logo { width: 72px !important; height: 72px !important; }
+      .hero-wordmark-wrap { margin-top: -14px; }
+      .mobile-hero-panel { gap: 9px; }
+      .mobile-hero-title { font-size: clamp(32px, 8vw, 42px); }
+      .mobile-hero-subtitle { font-size: 14px; }
+      .mobile-hero-chip { min-height: 74px; padding: 7px 5px; }
+      .mobile-hero-chip strong { font-size: 15px; }
+      .mobile-hero-chip span { font-size: 12px; }
+      .mobile-hero-cta { min-height: 52px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
+  <div id="live-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ====================================================================
+       Sticky Light Pastel Header
+       ==================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="#top" aria-label="ТонПлат — на главную">
+        <img class="brand-logo" src="./logo.png?v=20261105" width="96" height="96" alt="ТонПлат — Готовим с любовью!">
+        <span>
+          <span class="brand-name">ТонПлат</span>
+          <span class="brand-tagline">Кейтеринг &middot; Самара</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a class="nav-link" href="#sets">Готовые наборы</a>
+        <a class="nav-link" href="#menu">Меню</a>
+        <a class="nav-link" href="#benefits">Преимущества</a>
+        <a class="nav-link" href="#portfolio">Мероприятия</a>
+        <a class="nav-link" href="#faq">Вопросы</a>
+        <a class="nav-link" href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-phone" href="tel:+79276058488">
+          <span class="header-phone-num">+7 (927) 605-84-88</span>
+          <span class="header-phone-sub">Ответим за 15 минут</span>
+        </a>
+
+        <button
+          id="open-table-btn"
+          class="btn btn-primary btn-icon-start"
+          type="button"
+          aria-haspopup="dialog"
+          aria-controls="table-drawer"
+          aria-expanded="false"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+          <span id="header-btn-label">Собрать на стол</span>
+          <span id="header-cart-count" class="count-pill" hidden>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ==================================================================
+         1. HERO SECTION — Modern Airy Pastel Catering Website Hero
+         ================================================================== -->
+    <section id="top" class="hero-full" aria-label="ТонПлат — кейтеринг в Самаре">
+      <img class="hero-full-img" src="./hero-cover.jpg?v=20261105" alt="" fetchpriority="high">
+      <div class="hero-full-overlay"></div>
+      <div class="hero-particles" aria-hidden="true"></div>
+      <div class="hero-full-center">
+        <div class="hero-wordmark-wrap">
+          <span class="hero-full-name" id="hero-name">ТОНПЛАТ</span>
+        </div>
+        <div class="mobile-hero-panel" aria-label="Главное предложение">
+          <h1 class="mobile-hero-title">Фуршеты и кейтеринг в Самаре</h1>
+          <p class="mobile-hero-subtitle">Готовые столы, закуски и банкетные наборы</p>
+          <button class="mobile-hero-cta" id="hero-open-builder" type="button" aria-haspopup="dialog" aria-controls="table-drawer">Собрать на стол</button>
+          <p class="mobile-hero-trust">Оплата после получения</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         2. READY SETS — One-Click Balanced Table Builder (#sets)
+         ================================================================== -->
+    <section id="sets" class="section-alabaster" aria-labelledby="sets-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="overline-tag">Быстрый выбор</p>
+          <h2 id="sets-heading" class="section-title">Готовые наборы под ваше число гостей</h2>
+          <p class="section-lead">
+            Укажите количество гостей и нажмите «Собрать этот стол» — мы сразу наполним ваш заказ сбалансированным набором блюд, где любую позицию легко поменять.
+          </p>
+          <div class="menu-ornament" aria-hidden="true"><span class="menu-diamond"></span></div>
+        </div>
+
+        <div class="guest-bar-wrap">
+          <span style="font-size: var(--text-sm); font-weight: 600;">Сколько будет гостей:</span>
+          <div class="qty-stepper" aria-label="Количество гостей">
+            <button id="page-guest-dec" class="stepper-btn" type="button" aria-label="Меньше гостей">−</button>
+            <input id="page-guest-input" class="qty-input" style="width: 48px;" type="number" min="1" max="500" value="20" aria-label="Число гостей">
+            <button id="page-guest-inc" class="stepper-btn" type="button" aria-label="Больше гостей">+</button>
+          </div>
+          <div id="page-guest-chips" class="guest-quick-chips" role="group" aria-label="Быстрый выбор числа гостей"></div>
+        </div>
+
+        <div id="presets-grid" class="presets-grid"></div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         3. FULL 94-DISH INTERACTIVE MENU (#menu — Menu Cream Pastel Band)
+         ================================================================== -->
+    <section id="menu" class="section-menu-cream" aria-labelledby="menu-heading">
+      <div class="container">
+        <div class="section-head" style="margin-block-end: 24px;">
+          <p class="overline-tag">ТонПлат &middot; Банкетное меню</p>
+          <h2 id="menu-heading" class="section-title">Все 97 блюда с ценами за штуку</h2>
+          <p class="section-lead">
+            Нажимайте «Добавить» на понравившихся позициях или откройте карточку блюда, чтобы выбрать начинку.
+          </p>
+          <div class="menu-ornament" aria-hidden="true"><span class="menu-diamond"></span></div>
+        </div>
+      </div>
+
+      <!-- Sticky Category Bar -->
+      <div class="sticky-menu-bar">
+        <div class="container">
+          <div class="cat-scroller-wrap">
+            <div id="cat-scroller" class="cat-scroller" role="tablist" aria-label="Категории меню"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="menu-search-toolbar">
+          <div class="search-box">
+            <svg class="search-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <label for="menu-search" class="sr-only">Поиск блюда или ингредиента</label>
+            <input
+              id="menu-search"
+              class="search-input"
+              type="search"
+              placeholder="Найти блюдо: лосось, креветка, груша, камамбер…"
+              autocomplete="off"
+            >
+            <button id="menu-search-clear" class="search-clear" type="button" aria-label="Очистить поиск" hidden>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div id="tag-filters" class="tag-row" role="group" aria-label="Фильтры по составу"></div>
+        </div>
+
+        <div id="menu-catalog">
+          <noscript>
+            <p>Включите JavaScript для интерактивного выбора блюд или позвоните нам: <a href="tel:+79276058488">+7 (927) 605-84-88</a>.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         4. BENEFITS — Why Guests & Companies Choose TonPlat (#benefits)
+         ================================================================== -->
+    <section id="benefits" class="section-alabaster" aria-labelledby="benefits-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="overline-tag">Спокойствие за результат</p>
+          <h2 id="benefits-heading" class="section-title">Готовим как для самых близких</h2>
+          <div class="menu-ornament" aria-hidden="true"><span class="menu-diamond"></span></div>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <h3 class="benefit-title">Строго из-под ножа</h3>
+            <p class="benefit-desc">Никаких заготовок вчерашнего дня — готовим непосредственно перед выездом из свежих ингредиентов.</p>
+          </article>
+          <article class="benefit-card">
+            <h3 class="benefit-title">Любой объём от 1 позиции</h3>
+            <p class="benefit-desc">У нас нет минимальной суммы заказа: с одинаковой заботой привезём и 2 набора к ужину, и банкет на 150 гостей.</p>
+          </article>
+          <article class="benefit-card">
+            <h3 class="benefit-title">Оплата после получения</h3>
+            <p class="benefit-desc">Платите при приёмке удобным способом. Для ООО и ИП выставляем счёт и передаём полный пакет закрывающих документов.</p>
+          </article>
+          <article class="benefit-card">
+            <h3 class="benefit-title">«Халяль» и учёт аллергий</h3>
+            <p class="benefit-desc">По запросу готовим из 100&nbsp;% продукции с маркировкой «Халяль» (пришлём фото упаковок) и убираем любые нежелательные ингредиенты.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         5. PORTFOLIO LOOKBOOK (#portfolio)
+         ================================================================== -->
+    <section id="portfolio" class="section-pastel-linen" aria-labelledby="portfolio-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="overline-tag">Живая сервировка</p>
+          <h2 id="portfolio-heading" class="section-title">Наши мероприятия в Самаре</h2>
+          <p class="section-lead">
+            Реальные фотографии накрытия фуршетов, свадеб и деловых приёмов — без стоковых картинок.
+          </p>
+          <div class="menu-ornament" aria-hidden="true"><span class="menu-diamond"></span></div>
+        </div>
+
+        <div id="gallery-grid" class="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         5.5. ПРОСТРАНСТВО ДЛЯ МЕРОПРИЯТИЙ
+         ================================================================== -->
+    <section id="venue" class="section-alabaster" aria-labelledby="venue-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="overline-tag">Пространство для встреч</p>
+          <h2 id="venue-heading" class="section-title">Уютное место для ваших событий</h2>
+          <p class="section-lead">
+            Каменное пространство в Самаре для тёплых встреч на 15–20 гостей. Идеально для мастер-классов, дней рождений, девичников и дружеских посиделок.
+          </p>
+          <div class="menu-ornament" aria-hidden="true"><span class="menu-diamond"></span></div>
+        </div>
+
+        <div class="venue-grid">
+          <div class="venue-card">
+            <div class="venue-image">
+              <img src="./gallery-01.jpg?v=20261105" width="400" height="300" alt="Пространство для мероприятий" loading="lazy">
+            </div>
+            <div class="venue-info">
+              <h3>Пространство для 15–20 гостей</h3>
+              <p>Уютное каменное помещение с диванчиком, караоке, столами и стульями. Подойдёт для мастер-классов, дней рождений, девичников и тёплых дружеских встреч.</p>
+              <p class="venue-price"><strong>1 400 ₽/час</strong></p>
+              <p class="venue-note">Дополнительно: сервировка, посуда и наши закуски.</p>
+            </div>
+          </div>
+
+          <div class="venue-card">
+            <div class="venue-info">
+              <h3>Что ещё можно заказать</h3>
+              <ul class="venue-list">
+                <li>Выезд шеф-повара с показательной подачей</li>
+                <li>Аренда посуды и текстиля</li>
+                <li>Оформление candy-bar и кофе-брейка</li>
+                <li>Фотосъёмка «в коробках» для доставок</li>
+                <li>Фирменная упаковка с логотипом</li>
+                <li>Подбор меню под диету и детское меню</li>
+              </ul>
+              <p class="venue-note"><strong>Для постоянных корпоративных клиентов</strong> возможна отсрочка платежа по договорённости.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="venue-gallery" aria-label="Фотографии зала для встреч">
+          <figure class="venue-shot">
+            <img src="./venue-02.jpg?v=20261107" width="800" height="1066" alt="Сервированный банкетный стол в зале ТонПлат" loading="lazy" decoding="async">
+            <figcaption>Сервированный стол для гостей · 1 400 ₽/час</figcaption>
+          </figure>
+          <figure class="venue-shot">
+            <img src="./venue-03.jpg?v=20261107" width="800" height="970" alt="Вход в пространство ТонПлат: кирпичный дом с воротами и вывеской" loading="lazy" decoding="async">
+            <figcaption>Вход в пространство «ТонПлат» в Самаре</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         6. FAQ (#faq)
+         ================================================================== -->
+    <section id="faq" class="section-alabaster" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-head">
+          <p class="overline-tag">Частые вопросы</p>
+          <h2 id="faq-heading" class="section-title">Условия заказа и доставки</h2>
+          <div class="menu-ornament" aria-hidden="true"><span class="menu-diamond"></span></div>
+        </div>
+
+        <div id="faq-list" class="faq-list"></div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         7. CONTACTS & ULTRA-SIMPLE 3-FIELD QUICK ORDER (#contacts)
+         ================================================================== -->
+    <section id="contacts" class="section-pastel-linen" aria-labelledby="contacts-heading">
+      <div class="container">
+        <div class="contacts-layout">
+          <div>
+            <div style="display: flex; align-items: center; gap: 14px; margin-block-end: 18px;">
+              <img src="./logo.png?v=20261105" width="76" height="76" style="border-radius: 50%;" alt="ТонПлат">
+              <div>
+                <p class="overline-tag" style="margin: 0;">Ответим в течение 15 минут</p>
+                <h2 id="contacts-heading" class="section-title">Свяжитесь с ТонПлат</h2>
+              </div>
+            </div>
+
+            <p style="font-size: var(--text-base); color: var(--color-text-secondary); max-width: 48ch; margin: 0 0 24px;">
+              Принимаем как плановые бронирования дат, так и срочные заказы «день в день» по звонку. Работаем по всей Самаре и выезжаем в Самарскую область.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-block-end: 24px;">
+              <div>
+                <span class="field-label">Телефон для связи и срочных заказов</span>
+                <a href="tel:+79276058488" style="display: block; font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--color-text-primary); text-decoration: none;" data-tabular>+7 (927) 605-84-88</a>
+              </div>
+              <div>
+                <span class="field-label">Адрес кухни в Самаре</span>
+                <strong style="display: block; font-size: var(--text-base);">г. Самара, ул. Комсомольская, 29 (кухня и самовывоз)</strong>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <a class="btn btn-primary" href="tel:+79276058488">Позвонить</a>
+              <a class="btn btn-outline" href="https://t.me/+79608121333" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a class="btn btn-outline" href="https://vk.com/ton_plat_samara" target="_blank" rel="noopener noreferrer">ВКонтакте (5,0&nbsp;★)</a>
+            </div>
+          </div>
+
+          <!-- Ultra-Simple Human Request Card (Zero Multi-Step Maze!) -->
+          <div class="quick-form-card">
+            <h3 style="margin: 0 0 6px; font-family: var(--font-display); font-size: 1.625rem; font-weight: 600;">
+              Помочь собрать стол под ваш бюджет?
+            </h3>
+            <p style="margin: 0 0 18px; font-size: var(--text-sm); color: var(--color-text-secondary);">
+              Укажите имя и телефон — мы свяжемся с вами для предварительного расчёта.
+            </p>
+
+            <form id="footer-order-form" novalidate>
+              <div class="form-field">
+                <label class="field-label" for="footer-name">Ваше имя *</label>
+                <input id="footer-name" class="form-input" maxlength="80" type="text" placeholder="Елена" autocomplete="name" required>
+              </div>
+              <div class="form-field">
+                <label class="field-label" for="footer-phone">Телефон для связи *</label>
+                <input id="footer-phone" class="form-input" maxlength="30" type="tel" placeholder="+7 (960) 123-45-67" autocomplete="tel" required>
+              </div>
+              <div class="form-field">
+                <label class="field-label" for="footer-notes">Повод, число гостей или пожелания (необязательно)</label>
+                <input id="footer-notes" class="form-input" maxlength="500" type="text" placeholder="Например: фуршет в офис на 20 чел., пятница">
+              </div>
+
+              <label class="privacy-form-consent">
+                <input id="footer-consent" type="checkbox" required>
+                <span>Даю <a href="./consent.html" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> для ответа на запрос. Подробнее — в <a href="./privacy.html" target="_blank" rel="noopener noreferrer">политике конфиденциальности</a>.</span>
+              </label>
+              <p class="privacy-form-note">Нажимая «Отправить», вы даёте согласие на обработку указанных данных для оформления заказа. <a href="./privacy.html" target="_blank" rel="noopener noreferrer">Подробнее об обработке данных</a>.</p>
+              <p id="footer-error" class="field-error" role="alert" hidden></p>
+
+              <button class="btn btn-primary" type="submit" style="width: 100%; margin-block-start: 4px;">
+                Отправить заявку
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <footer class="footer-bottom" aria-label="Правовая информация">
+          <div class="footer-identity">
+            <strong>ТонПлат</strong> <span>© 2026</span>
+            <span>ООО «ТОН ПЛАТ» · ИНН 6314049248 · ОГРН 1226300038326</span>
+            <a href="mailto:tonplatsamara@gmail.com">tonplatsamara@gmail.com</a>
+          </div>
+          <nav class="footer-legal-links" aria-label="Документы и настройки">
+            <a href="./privacy.html" target="_blank" rel="noopener noreferrer">Конфиденциальность</a>
+            <a href="./consent.html" target="_blank" rel="noopener noreferrer">Согласие на обработку данных</a>
+            <a href="./cookies.html" target="_blank" rel="noopener noreferrer">Cookie-файлы</a>
+            <a href="./terms.html" target="_blank" rel="noopener noreferrer">Условия заказа</a>
+            <button id="privacy-settings-btn" type="button" class="footer-link-button">Настройки cookies</button>
+          </nav>
+          <p class="footer-dish-note">Изображение блюда может немного отличаться от реального.</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Bottom Pill Bar when Dishes Are Selected -->
+  <div id="floating-cart-bar" class="floating-cart-bar" hidden>
+    <div>
+      <span id="floating-cart-sum" class="floating-cart-sum" data-tabular>0&nbsp;₽</span>
+      <span id="floating-cart-meta" class="floating-cart-meta" data-tabular>0 шт. на столе</span>
+    </div>
+    <button id="floating-open-table" class="btn btn-primary" type="button">
+      Оформить заказ
+    </button>
+  </div>
+
+  <!-- Undo Toast -->
+  <div id="toast-bar" class="toast-bar" role="status" aria-live="polite" hidden>
+    <span id="toast-message">Готово</span>
+    <button id="toast-undo-btn" class="toast-undo-btn" type="button" hidden>Вернуть</button>
+  </div>
+
+  <!-- ====================================================================
+       UNIFIED EFFORTLESS «СОБРАТЬ СТОЛ» DRAWER
+       Zero multi-page quests: 1 screen for guests, dishes & 2-click order!
+       ==================================================================== -->
+  <div id="drawer-backdrop" class="backdrop" aria-hidden="true"></div>
+  <aside
+    id="table-drawer"
+    class="table-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="table-drawer-title"
+    aria-hidden="true"
+  >
+    <div class="drawer-head">
+      <div class="drawer-head-top">
+        <div class="drawer-head-brand">
+        <img src="./logo.png?v=20261105" width="36" height="36" style="border-radius: 50%;" alt="">
+        <div>
+          <h2 id="table-drawer-title" class="drawer-title">Собрать на стол</h2>
+          <span id="drawer-subtitle" style="font-size: var(--text-xs); color: var(--color-text-secondary);" data-tabular>Без минимальной суммы &middot; оплата при получении</span>
+        </div>
+      </div>
+      <button id="close-table-btn" class="icon-btn" type="button" aria-label="Закрыть окно">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      </div>
+      <nav class="drawer-quick-nav" aria-label="Вернуться к сайту">
+        <a href="#top" data-close-drawer>На главную</a>
+        <a href="#menu" data-close-drawer>Посмотреть меню</a>
+      </nav>
+    </div>
+
+    <div id="drawer-scroll-content" class="drawer-scroll">
+      <!-- 1. Quick Event & Guest Bar -->
+      <div class="drawer-card">
+        <p class="drawer-card-title">1. Повод и число гостей</p>
+        <div id="drawer-occasions" style="display: flex; flex-wrap: wrap; gap: 6px; margin-block-end: 12px;"></div>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
+          <span style="font-size: var(--text-sm); font-weight: 600;">Гостей:</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="qty-stepper">
+              <button id="drawer-guest-dec" class="stepper-btn" type="button" aria-label="Меньше гостей">−</button>
+              <input id="drawer-guest-input" class="qty-input" style="width: 44px;" type="number" min="1" max="500" value="20" aria-label="Гостей">
+              <button id="drawer-guest-inc" class="stepper-btn" type="button" aria-label="Больше гостей">+</button>
+            </div>
+          </div>
+        </div>
+        <p id="drawer-norm-hint" style="margin: 10px 0 0; font-size: var(--text-xs); color: var(--color-badge-sage-text);" data-tabular></p>
+      </div>
+
+      <!-- 2. Dishes List OR 1-Click Ready Sets -->
+      <div class="drawer-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-block-end: 8px;">
+          <p class="drawer-card-title" style="margin: 0;">2. Блюда на вашем столе</p>
+          <button id="drawer-clear-btn" type="button" style="border: 0; background: transparent; color: var(--color-text-secondary); font-size: var(--text-xs); text-decoration: underline; cursor: pointer;" hidden>Очистить список</button>
+        </div>
+
+        <div id="drawer-items-box"></div>
+      </div>
+
+      <!-- 3. Simple Human Order Form right here (Name + Phone + Optional Wishes!) -->
+      <div id="drawer-form-box" class="drawer-card">
+        <p class="drawer-card-title">3. Контакт для уточнения заказа</p>
+        <form id="drawer-order-form" novalidate>
+          <div class="form-field">
+            <label class="field-label" for="drawer-name">Ваше имя *</label>
+            <input id="drawer-name" class="form-input" maxlength="80" type="text" placeholder="Елена" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label class="field-label" for="drawer-phone">Телефон *</label>
+            <input id="drawer-phone" class="form-input" maxlength="30" type="tel" placeholder="+7 (960) 123-45-67" autocomplete="tel" required>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-block-end: 10px;">
+            <button id="opt-chip-halal" class="tag-chip" type="button" aria-pressed="false">Нужен 100&nbsp;% «Халяль»</button>
+            <button id="opt-chip-b2b" class="tag-chip" type="button" aria-pressed="false">Счёт для ООО / ИП</button>
+          </div>
+
+          <div class="form-field">
+            <label class="field-label" for="drawer-address">Дата, адрес доставки и пожелания (необязательно)</label>
+            <input id="drawer-address" class="form-input" maxlength="500" type="text" placeholder="Например: 25 октября к 18:00, ул. Куйбышева, 90, без лука">
+          </div>
+
+          <label class="privacy-form-consent">
+            <input id="drawer-consent" type="checkbox" required>
+            <span>Даю <a href="./consent.html" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a> для ответа на запрос. Подробнее — в <a href="./privacy.html" target="_blank" rel="noopener noreferrer">политике конфиденциальности</a>.</span>
+          </label>
+          <p class="privacy-form-note">При отправке заявки данные используются только для оформления заказа. Запрос не является подтверждённым заказом.</p>
+          <p id="drawer-error" class="field-error" role="alert" hidden></p>
+
+          <button id="drawer-submit-btn" class="btn btn-primary" type="submit" style="width: 100%;">
+            Отправить заявку
+          </button>
+
+          <button id="drawer-pdf-btn" class="btn btn-pastel" type="button" style="width: 100%; margin-block-start: 8px;" hidden>
+            Скачать / распечатать смету PDF
+          </button>
+        </form>
+      </div>
+
+      <!-- Подтверждение приёма заявки -->
+      <div id="drawer-sent-box" class="drawer-card" hidden>
+        <span class="sage-pill" style="margin-block-end: 10px;">&#10003; Заявка принята</span>
+        <h3 style="margin: 0 0 6px; font-family: var(--font-display); font-size: 1.5rem;">Спасибо! Заявка отправлена</h3>
+        <p style="margin: 0 0 12px; font-size: var(--text-xs); color: var(--color-text-secondary);">
+          Ваша заявка принята. Мы свяжемся с вами для уточнения деталей.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-block-end: 14px;">
+          <a class="btn btn-pastel" href="tel:+79276058488" style="width: 100%;">Позвонить по вопросу заказа</a>
+          <button id="sent-pdf-btn" class="btn btn-outline" type="button" style="width: 100%;">Сохранить смету в PDF</button>
+        </div>
+
+        <pre id="sent-preview" style="margin: 0 0 12px; padding: 12px; max-height: 180px; overflow-y: auto; border-radius: 8px; background: var(--color-bg-page); border: 1px solid var(--color-border-subtle); font-family: var(--font-sans); font-size: var(--text-xs); white-space: pre-wrap; overflow-wrap: break-word;"></pre>
+
+        <button id="sent-back-btn" class="btn btn-outline" type="button" style="width: 100%;">
+          Изменить состав стола
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Dish Lightbox Modal -->
+  <dialog id="dish-dialog" class="dish-dialog" aria-labelledby="dialog-dish-title">
+    <div class="dialog-inner">
+      <div class="dialog-media">
+        <img id="dialog-dish-img" class="content-photo" src="./hero-cover.jpg?v=20261105" width="800" height="450" alt="">
+        <span class="dish-num" id="dialog-dish-num" aria-hidden="true"></span>
+        <button id="dialog-close-btn" class="icon-btn dialog-close" type="button" aria-label="Закрыть окно блюда">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div style="padding: 16px 6px 4px;">
+        <span id="dialog-dish-cat" class="overline-tag" style="margin-block-end: 4px;"></span>
+        <h3 id="dialog-dish-title" style="margin: 0; font-family: var(--font-display); font-size: 1.6875rem; font-weight: 600; line-height: 1.15;"></h3>
+        <p id="dialog-dish-sub" class="dish-composition" style="font-size: 1.0625rem; margin-block-start: 6px;"></p>
+
+        <div id="dialog-choice-block" hidden>
+          <span class="field-label" style="display: block; margin-block-start: 14px;">Выберите вариант подачи или начинку:</span>
+          <div id="dialog-choice-chips" class="choice-chips-wrap"></div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-block-start: 18px; padding-block-start: 14px; border-block-start: 1px solid var(--color-border-subtle);">
+          <div>
+            <span id="dialog-dish-price" class="dish-price" data-tabular></span>
+            <span style="display: block; font-size: var(--text-xs); color: var(--color-text-secondary);">за 1 шт.</span>
+          </div>
+          <div id="dialog-dish-controls"></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Printable Banquet Estimate View -->
+  <section id="print-estimate" class="print-estimate" aria-hidden="true"></section>
+
+  <!-- Уведомление об использовании cookies. -->
+  <section id="privacy-banner" class="privacy-banner" role="region" aria-label="Информация о cookies" hidden>
+    <div class="privacy-banner-content">
+      <strong>Мы используем куки</strong>
+    </div>
+    <div class="privacy-banner-actions">
+      <button id="privacy-accept" class="btn btn-primary" type="button">ОК</button>
+    </div>
+  </section>
+
+  <script src="./config.js"></script>
+  <script src="./menu-data.js"></script>
+  <script src="./privacy.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

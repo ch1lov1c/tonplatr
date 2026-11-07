@@ -1516,7 +1516,7 @@ window.TONPLAT_DATA = {
       "name": "Детский бокс",
       "subtitle": "картофель фри, наггетсы, соус, овощные стики, мини-бургер, канапе",
       "price": 650,
-      "image": "./item-97.jpg?v=20261107",
+      "image": "./item-97.jpg?v=20261107b",
       "overlayBadge": false,
       "choices": [
         "Стандартное наполнение",
