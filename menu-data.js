@@ -1,4 +1,4 @@
-/* Автоматически выверенная база банкетного меню Ton Plat (97 позиций, 23 страницы PDF + детский бокс) */
+/* Автоматически выверенная база банкетного меню Ton Plat (108 позиций, 23 страницы PDF + детский бокс) */
 window.TONPLAT_DATA = {
   "categories": [
     {
@@ -39,7 +39,7 @@ window.TONPLAT_DATA = {
     {
       "id": "salads",
       "name": "Салаты",
-      "note": "Порционные салаты и веррины"
+      "note": "Порционные салаты, веррины и салаты в общей подаче"
     },
     {
       "id": "desserts",
@@ -1487,36 +1487,205 @@ window.TONPLAT_DATA = {
       "code": "95",
       "cat": "salads",
       "category": "Салаты",
-      "name": "Салат в общей подаче · классические",
-      "subtitle": "большая порция на общий стол · 500 г · Цезарь, Оливье, Курица с ананасом, Сельдь под шубой, Мимоза, Нежный, Нью-Йорк",
+      "name": "Цезарь",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 600,
       "image": "./salat-600.jpg?v=20261105",
       "overlayBadge": false,
       "choices": [],
-      "tags": ["meat"]
+      "tags": [
+        "meat"
+      ]
     },
     {
       "id": 96,
       "code": "96",
       "cat": "salads",
       "category": "Салаты",
-      "name": "Салат в общей подаче · с креветкой и уткой",
-      "subtitle": "большая порция на общий стол · 500 г · Цезарь с креветками, Креветка в апельсиновом раю, Утка с грейпфрутом, Тбилиси, Мужской каприз, Гранатовый",
-      "price": 750,
-      "image": "./salat-750.jpg?v=20261105",
+      "name": "Оливье",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 600,
+      "image": "./salat-600.jpg?v=20261105",
       "overlayBadge": false,
       "choices": [],
-      "tags": ["seafood", "meat"]
+      "tags": [
+        "meat"
+      ]
     },
     {
       "id": 97,
       "code": "97",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Курица с ананасом",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 600,
+      "image": "./salat-600.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "meat"
+      ]
+    },
+    {
+      "id": 98,
+      "code": "98",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Сельдь под шубой",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 600,
+      "image": "./salat-600.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "seafood"
+      ]
+    },
+    {
+      "id": 99,
+      "code": "99",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Мимоза",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 600,
+      "image": "./salat-600.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "seafood"
+      ]
+    },
+    {
+      "id": 100,
+      "code": "100",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Нежный",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 600,
+      "image": "./salat-600.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "meat"
+      ]
+    },
+    {
+      "id": 101,
+      "code": "101",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Нью-Йорк",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 600,
+      "image": "./salat-600.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "meat"
+      ]
+    },
+    {
+      "id": 102,
+      "code": "102",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Цезарь с креветками",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 750,
+      "image": "./salat-750.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "meat"
+      ]
+    },
+    {
+      "id": 103,
+      "code": "103",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Креветка в апельсиновом раю",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 750,
+      "image": "./salat-750.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "seafood"
+      ]
+    },
+    {
+      "id": 104,
+      "code": "104",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Утка с грейпфрутом",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 750,
+      "image": "./salat-750.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "meat"
+      ]
+    },
+    {
+      "id": 105,
+      "code": "105",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Тбилиси",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 750,
+      "image": "./salat-750.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "veg"
+      ]
+    },
+    {
+      "id": 106,
+      "code": "106",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Мужской каприз",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 750,
+      "image": "./salat-750.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "meat"
+      ]
+    },
+    {
+      "id": 107,
+      "code": "107",
+      "cat": "salads",
+      "category": "Салаты",
+      "name": "Гранатовый",
+      "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
+      "price": 750,
+      "image": "./salat-750.jpg?v=20261105",
+      "overlayBadge": false,
+      "choices": [],
+      "tags": [
+        "meat"
+      ]
+    },
+    {
+      "id": 108,
+      "code": "108",
       "cat": "boxes",
       "category": "Боксы",
       "name": "Детский бокс",
       "subtitle": "картофель фри, наггетсы, соус, овощные стики, мини-бургер, канапе",
       "price": 650,
-      "image": "./item-97.jpg?v=20261107b",
+      "image": "./item-97.jpg?v=20261107c",
       "overlayBadge": false,
       "choices": [
         "Стандартное наполнение",
@@ -1524,7 +1693,9 @@ window.TONPLAT_DATA = {
         "Фруктовый стаканчик вместо овощных стиков",
         "Рулетик из ветчины вместо канапе"
       ],
-      "tags": ["poultry"]
+      "tags": [
+        "poultry"
+      ]
     },
 ],
   "presets": [

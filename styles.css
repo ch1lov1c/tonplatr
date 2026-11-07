@@ -2103,15 +2103,20 @@ body.tonplat-order-open .site-header { display: none !important; }
   border: 1px solid var(--color-border-subtle);
   padding: 20px;
 }
-.venue-image {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--color-border-subtle);
+/* Два фото зала внутри карточки «Пространство для 15–20 гостей» */
+.venue-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
-.venue-image img {
+.venue-photos img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-subtle);
 }
 .venue-info h3 {
   margin: 0 0 8px;
@@ -2144,43 +2149,16 @@ body.tonplat-order-open .site-header { display: none !important; }
   margin-bottom: 6px;
 }
 
-/* Фотографии зала (1 400 ₽/час) */
-.venue-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin-block-start: 26px;
-}
-.venue-shot {
-  margin: 0;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--color-border-subtle);
-  background: var(--color-bg-surface);
-}
-.venue-shot img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-}
-.venue-shot figcaption {
-  margin: 0;
-  padding: 10px 14px 12px;
-  font-size: 0.82rem;
-  line-height: 1.4;
-  text-align: center;
-  color: var(--color-text-secondary);
-}
-
 @media (max-width: 768px) {
   .venue-grid {
     grid-template-columns: 1fr;
   }
-  .venue-gallery {
+  .venue-photos {
+    gap: 8px;
+  }
+}
+@media (max-width: 420px) {
+  .venue-photos {
     grid-template-columns: 1fr;
-    gap: 14px;
-    margin-block-start: 20px;
   }
 }
