@@ -1490,7 +1490,7 @@ window.TONPLAT_DATA = {
       "name": "Цезарь",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 600,
-      "image": "./salat-600.jpg?v=20261105",
+      "image": "./salad-95.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1505,7 +1505,7 @@ window.TONPLAT_DATA = {
       "name": "Оливье",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 600,
-      "image": "./salat-600.jpg?v=20261105",
+      "image": "./salad-96.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1520,7 +1520,7 @@ window.TONPLAT_DATA = {
       "name": "Курица с ананасом",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 600,
-      "image": "./salat-600.jpg?v=20261105",
+      "image": "./salad-97.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1535,7 +1535,7 @@ window.TONPLAT_DATA = {
       "name": "Сельдь под шубой",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 600,
-      "image": "./salat-600.jpg?v=20261105",
+      "image": "./salad-98.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1550,7 +1550,7 @@ window.TONPLAT_DATA = {
       "name": "Мимоза",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 600,
-      "image": "./salat-600.jpg?v=20261105",
+      "image": "./salad-99.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1565,7 +1565,7 @@ window.TONPLAT_DATA = {
       "name": "Нежный",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 600,
-      "image": "./salat-600.jpg?v=20261105",
+      "image": "./salad-100.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1580,7 +1580,7 @@ window.TONPLAT_DATA = {
       "name": "Нью-Йорк",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 600,
-      "image": "./salat-600.jpg?v=20261105",
+      "image": "./salad-101.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1595,7 +1595,7 @@ window.TONPLAT_DATA = {
       "name": "Цезарь с креветками",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 750,
-      "image": "./salat-750.jpg?v=20261105",
+      "image": "./salad-102.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1610,7 +1610,7 @@ window.TONPLAT_DATA = {
       "name": "Креветка в апельсиновом раю",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 750,
-      "image": "./salat-750.jpg?v=20261105",
+      "image": "./salad-103.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1625,7 +1625,7 @@ window.TONPLAT_DATA = {
       "name": "Утка с грейпфрутом",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 750,
-      "image": "./salat-750.jpg?v=20261105",
+      "image": "./salad-104.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1640,7 +1640,7 @@ window.TONPLAT_DATA = {
       "name": "Тбилиси",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 750,
-      "image": "./salat-750.jpg?v=20261105",
+      "image": "./salad-105.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1655,7 +1655,7 @@ window.TONPLAT_DATA = {
       "name": "Мужской каприз",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 750,
-      "image": "./salat-750.jpg?v=20261105",
+      "image": "./salad-106.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
@@ -1670,7 +1670,7 @@ window.TONPLAT_DATA = {
       "name": "Гранатовый",
       "subtitle": "Салат в общей подаче · большая порция 500 г на компанию",
       "price": 750,
-      "image": "./salat-750.jpg?v=20261105",
+      "image": "./salad-107.jpg?v=20261107",
       "overlayBadge": false,
       "choices": [],
       "tags": [
