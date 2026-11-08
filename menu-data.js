@@ -141,7 +141,7 @@ window.TONPLAT_DATA = {
     "name": "Овощная тарелка",
     "subtitle": "",
     "price": 790,
-    "image": "./item-05.jpg?v=20261105",
+    "image": "./veg-plate.jpg?v=20261108",
     "overlayBadge": false,
     "choices": [],
     "tags": [
@@ -1685,7 +1685,7 @@ window.TONPLAT_DATA = {
       "name": "Детский бокс",
       "subtitle": "картофель фри, наггетсы, соус, овощные стики, мини-бургер, канапе",
       "price": 650,
-      "image": "./item-97.jpg?v=20261107c",
+      "image": "./box-108.jpg?v=20261108",
       "overlayBadge": false,
       "choices": [
         "Стандартное наполнение",
