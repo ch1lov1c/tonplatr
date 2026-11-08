@@ -141,7 +141,7 @@ window.TONPLAT_DATA = {
     "name": "Овощная тарелка",
     "subtitle": "",
     "price": 790,
-    "image": "./veg-plate.jpg?v=20261108",
+    "image": "./veg-plate.jpg?v=20261108b",
     "overlayBadge": false,
     "choices": [],
     "tags": [

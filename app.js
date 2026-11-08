@@ -687,9 +687,9 @@
   async function completeOrderSubmission(name, phone, extraNotes, errorEl, submitButton) {
     if (sendingLead) return;
     const formId = CFG.zapnoty && String(CFG.zapnoty.formId || "").trim();
-    // form_id должен быть получен от владельца сайта в Zapnoty. Не подменяем отправку фиктивным успехом.
-    if (!formId || !/^[a-zA-Z0-9_-]{3,128}$/.test(formId)) {
-      errorEl.textContent = "Приём заявок пока настраивается. Позвоните нам по номеру +7 (927) 605-84-88 или напишите на почту.";
+    // form_id — UUID из кабинета Zapnoty (см. config.js). Пустой/не-UUID не отправляем: показываем человеку контакты.
+    if (!formId || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(formId)) {
+      errorEl.textContent = "Онлайн-приём заявок сейчас настраивается. Позвоните +7 (927) 605-84-88 или напишите в Telegram — примем заказ вручную без очереди.";
       errorEl.hidden = false;
       return;
     }
@@ -710,7 +710,7 @@
     const payload = {
       name: name,
       phone: phone,
-      message: message + "\n\nСогласие на обработку ПД (ред. 05.11.2026): подтверждено отдельной отметкой на сайте.",
+      message: message + "\n\nСогласие на обработку ПД (ред. 08.11.2026): подтверждено отдельной отметкой на сайте.",
     };
     sendingLead = true;
     errorEl.hidden = true;

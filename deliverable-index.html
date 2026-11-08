@@ -15,6 +15,8 @@
   <meta property="og:title" content="ТонПлат — Кейтеринг и фуршеты в Самаре">
   <meta property="og:description" content="Соберите стол за минуту из 108 закусок, салатов и горячих блюд — без минимального заказа и с оплатой при получении.">
   <meta property="og:image" content="./hero-cover.jpg">
+  <meta property="og:url" content="https://тонплат.рф/">
+  <link rel="canonical" href="https://тонплат.рф/">
 
   <!-- Новый логотип используется и как иконка вкладки (favicon), и как логотип на сайте -->
   <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png">
@@ -30,27 +32,31 @@
     "@context": "https://schema.org",
     "@type": "FoodEstablishment",
     "name": "ТонПлат",
-    "legalName": "ООО «Тон Плат»",
+    "legalName": "Общество с ограниченной ответственностью «Тон Плат»",
     "taxID": "6314049248",
-    "vatID": "631401001",
     "registrationNumber": "1226300038326",
     "email": "tonplatsamara@gmail.com",
+    "url": "https://тонплат.рф/",
     "description": "Выездной кейтеринг в Самаре и Самарской области: фуршеты, банкеты, корпоративы, кофе-брейки и свадьбы.",
     "image": "./logo.png",
-    "telephone": "+7-960-812-13-33",
+    "telephone": "+7-927-605-84-88",
     "priceRange": "₽₽",
     "servesCuisine": "Европейская, фуршетная, банкетная",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Самара",
       "addressRegion": "Самарская область",
-      "streetAddress": "ул. Ереванская, дом 13",
+      "streetAddress": "ул. Ереванская, дом 13 (юридический адрес)",
       "postalCode": "443061",
       "addressCountry": "RU"
     },
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "КПП", "value": "631401001" },
+      { "@type": "PropertyValue", "name": "Фактический адрес (кухня и самовывоз)", "value": "443099, г. Самара, ул. Комсомольская, дом 29" }
+    ],
     "sameAs": [
       "https://vk.com/ton_plat_samara",
-      "https://t.me/+79608121333"
+      "https://t.me/+79276058488"
     ]
   }
   </script>
@@ -568,14 +574,18 @@
                 <a href="tel:+79276058488" style="display: block; font-family: var(--font-display); font-size: 1.75rem; font-weight: 700; color: var(--color-text-primary); text-decoration: none;" data-tabular>+7 (927) 605-84-88</a>
               </div>
               <div>
-                <span class="field-label">Адрес кухни в Самаре</span>
-                <strong style="display: block; font-size: var(--text-base);">г. Самара, ул. Комсомольская, 29 (кухня и самовывоз)</strong>
+                <span class="field-label">Фактический адрес (кухня и самовывоз)</span>
+                <strong style="display: block; font-size: var(--text-base);">443099, г. Самара, ул. Комсомольская, 29</strong>
+              </div>
+              <div>
+                <span class="field-label">Юридический адрес и реквизиты</span>
+                <strong style="display: block; font-size: var(--text-sm);">ООО «Тон Плат» · 443061, г. Самара, ул. Ереванская, 13 · ИНН 6314049248 · КПП 631401001 · ОГРН 1226300038326</strong>
               </div>
             </div>
 
             <div style="display: flex; flex-wrap: wrap; gap: 10px;">
               <a class="btn btn-primary" href="tel:+79276058488">Позвонить</a>
-              <a class="btn btn-outline" href="https://t.me/+79608121333" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a class="btn btn-outline" href="https://t.me/+79276058488" target="_blank" rel="noopener noreferrer">Telegram</a>
               <a class="btn btn-outline" href="https://vk.com/ton_plat_samara" target="_blank" rel="noopener noreferrer">ВКонтакте (5,0&nbsp;★)</a>
             </div>
           </div>
@@ -822,7 +832,12 @@
     </div>
     <div class="privacy-banner-actions">
       <button id="privacy-accept" class="btn btn-primary" type="button">ОК</button>
+      <button id="privacy-reject" class="btn btn-outline" type="button">Отклонить</button>
     </div>
+    <p style="margin: 10px 0 0; font-size: var(--text-sm); color: var(--color-text-secondary);">
+      «ОК» — корзина сохранится между визитами; «Отклонить» — только обязательные cookie, корзина в текущей вкладке.
+      Подробнее: <a href="./cookies.html">файлы cookie</a> · <a href="./privacy.html">политика ПД</a> · <a href="./consent.html">согласие</a>.
+    </p>
   </section>
 
   <script src="./config.js"></script>

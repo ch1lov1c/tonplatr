@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Cookie-файлы — ТонПлат</title>
+  <title>Файлы cookie и локальное хранилище — ТонПлат</title>
   <meta name="theme-color" content="#FAF7F2">
   <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png">
   <style>
@@ -15,12 +15,17 @@
     .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #111; font-weight: 700; font-size: 1.5rem; font-family: 'Trebuchet MS', 'Palatino Linotype', serif; }
     .brand img { width: 40px; height: 40px; border-radius: 50%; }
     h1 { font-size: clamp(1.65rem, 4vw, 2.25rem); line-height: 1.22; margin: 0 0 16px; }
-    p { margin: 0 0 16px; }
-    ul { padding-left: 22px; margin: 0 0 16px; }
-    li { margin: 0 0 8px; }
+    h2 { font-size: 1.2rem; margin: 28px 0 10px; }
+    p, li { margin: 0 0 12px; }
+    ul { padding-left: 22px; }
+    table { border-collapse: collapse; width: 100%; margin: 0 0 16px; font-size: 0.95rem; }
+    th, td { border: 1px solid #e0d5c9; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #f3ece3; }
+    code { background: #f3ece3; padding: 1px 5px; border-radius: 4px; }
     .back { display: inline-block; margin-top: 24px; color: #5f463c; text-decoration: none; }
     .back:hover { text-decoration: underline; }
-    @media (max-width: 600px) { .container { padding: 16px; } }
+    .meta { color: #7a6a58; font-size: 0.9rem; }
+    @media (max-width: 600px) { .container { padding: 16px; } table { font-size: 0.85rem; } }
   </style>
 </head>
 <body>
@@ -31,15 +36,46 @@
     </a>
   </header>
   <div class="container">
-    <h1>Cookie-файлы</h1>
-    <p>На сайте ТонПлат используются только технические cookie-файлы, необходимые для работы корзины и сохранения вашего выбора между визитами.</p>
-    <p><strong>Какие cookie мы используем:</strong></p>
+    <h1>Файлы cookie и локальное хранилище</h1>
+    <p class="meta">Редакция от 08.11.2026, версия 2.0.</p>
+
+    <p>Сайт использует только функциональные (технические и преференциальные) cookie и записи localStorage, необходимые для работы корзины и запоминания вашего выбора. Рекламных, аналитических и отслеживающих cookie сторонних сервисов на сайте нет.</p>
+
+    <h2>Перечень фактических записей</h2>
+    <table>
+      <tr><th>Имя</th><th>Тип</th><th>Срок хранения</th><th>Назначение</th></tr>
+      <tr>
+        <td><code>tonplat_cookie_choice_v2</code></td>
+        <td>cookie (first-party)</td>
+        <td>180 дней</td>
+        <td>Хранит ваш выбор в баннере: «ОК» (постоянное хранение корзины) или «Отклонить» (только обязательные, корзина в текущей вкладке)</td>
+      </tr>
+      <tr>
+        <td><code>tonplat_cart_v2</code></td>
+        <td>localStorage / sessionStorage</td>
+        <td>localStorage — пока не очистите хранилище браузера (только при выборе «ОК»); sessionStorage — до закрытия вкладки (при выборе «Отклонить»)</td>
+        <td>Состав корзины заказа между визитами или в пределах визита</td>
+      </tr>
+      <tr>
+        <td><code>tonplat_storage_choice_v1</code></td>
+        <td>localStorage (устаревший)</td>
+        <td>удаляется автоматически при загрузке страницы</td>
+        <td>Служебная запись старой версии сайта; используется только для миграции и сразу удаляется</td>
+      </tr>
+    </table>
+
+    <h2>Как управлять</h2>
     <ul>
-      <li>Технический cookie для работы корзины — хранит выбранные блюда в текущей сессии.</li>
-      <li>Cookie выбора хранения корзины — запоминает, нужно ли сохранять корзину между визитами (только с вашего разрешения).</li>
+      <li>при первом визите сайт показывает баннер с двумя кнопками: «ОК» и «Отклонить» — обе доступны одним кликом;</li>
+      <li>изменить выбор позже можно кнопкой «Настройки cookies» в подвале сайта — баннер откроется снова;</li>
+      <li>cookie и localStorage можно удалить средствами браузера (настройки сайта / очистка данных); при удалении <code>tonplat_cookie_choice_v2</code> корзина из постоянного хранилища удаляется автоматически при следующей загрузке;</li>
+      <li>отключение функциональных cookie не блокирует просмотр меню, но корзина будет жить только в текущей вкладке.</li>
     </ul>
-    <p>На сайте нет рекламных и аналитических cookie. Мы не используем скрипты сторонних сервисов для отслеживания пользователей.</p>
-    <p>Вы можете отключить cookie в настройках вашего браузера. При этом работа корзины может быть ограничена.</p>
+
+    <h2>Связь с политикой</h2>
+    <p>Идентификатор выбора cookie и корзина относятся к персональным данным только в связке с данными заявки; правовые основания и сроки описаны в <a href="./privacy.html">политике в отношении обработки персональных данных</a>. Форма заявки данных в cookie не сохраняет.</p>
+
+    <p class="meta">Связанные документы: <a href="./privacy.html">политика ПД</a> · <a href="./consent.html">согласие</a> · <a href="./terms.html">условия заказа</a>.</p>
     <a class="back" href="./index.html">← Вернуться на главную</a>
   </div>
 </body>
